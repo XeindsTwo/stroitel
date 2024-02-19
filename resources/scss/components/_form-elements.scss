@@ -1,0 +1,38 @@
+.label {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    display: block;
+    font-weight: 500;
+    color: $gray600;
+    cursor: pointer;
+}
+
+.input {
+    border-radius: 8px;
+    padding: 12px 14px;
+    background-color: $black700;
+    border: 1px solid $black500;
+    transition: background-color .4s, border .4s;
+    width: 100%;
+    font-size: 16px;
+    color: $white;
+
+    &:hover {
+        border-color: $primary400;
+    }
+
+    &:focus {
+        background-color: $black800;
+    }
+}
+
+.error {
+    color: #d04141;
+    display: none;
+    margin-bottom: 6px;
+
+    &--active {
+        display: block;
+    }
+}

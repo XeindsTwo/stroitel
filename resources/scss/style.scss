@@ -1,0 +1,20 @@
+@import 'reset';
+@import 'fonts';
+@import 'vars';
+@import 'mixin';
+@import 'libs';
+@import 'global';
+
+@import 'home/home';
+
+@import 'pages/auth';
+@import 'pages/error-page';
+
+@import 'components/btn';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/menu-btn';
+@import 'components/form-elements';
+@import 'components/modal';
+@import 'components/custom-select';
+@import 'components/custom-file';

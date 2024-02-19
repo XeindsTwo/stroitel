@@ -1,0 +1,95 @@
+.header {
+    padding: 20px 0;
+    border-bottom: 1px solid $black600;
+
+    &__inner {
+        @include flex-align-center(50);
+    }
+
+    &__list {
+        @include flex-align-center(32);
+        align-items: flex-start;
+    }
+
+    &__link {
+        transition: color .4s, opacity .4s, border .4s;
+        color: $gray500;
+        font-weight: 600;
+        border-bottom: 1px solid transparent;
+        padding-bottom: 2px;
+
+        &:hover {
+            color: $primary400;
+        }
+
+        &:focus {
+            color: $white;
+            border-bottom-color: $white;
+        }
+    }
+
+    &__btn {
+        margin-left: auto;
+
+        &-balance {
+            padding: 8px 10px;
+        }
+    }
+
+    &__auth {
+        @include flex-align-center(24);
+        margin-left: auto;
+    }
+
+    &__balance {
+        @include flex-align-center(16);
+        padding: 7px 10px;
+        background-color: $black600;
+        border-radius: 8px;
+        font-size: 14px;
+
+        span {
+            font-weight: 500;
+        }
+    }
+
+    &__actions {
+        @include flex-align-center(12);
+    }
+
+    &__action {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        overflow: hidden;
+        @include flex-center;
+        transition: background-color .4s, opacity .4s;
+
+        &:hover {
+            img {
+                transform: scale(1.15);
+            }
+        }
+
+        &:focus {
+            opacity: .5;
+        }
+
+        img {
+            @include objectCoverBg;
+            transition: transform .4s;
+        }
+    }
+
+    &__logout {
+        background-color: $red800;
+
+        &:hover {
+            background-color: $red600;
+
+            svg path {
+                stroke: $white
+            }
+        }
+    }
+}

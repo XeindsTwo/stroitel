@@ -1,0 +1,96 @@
+.select {
+  position: absolute;
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  z-index: -100;
+}
+
+.custom-select {
+  max-width: 100%;
+  position: relative;
+  padding: 20.5px 15px;
+  transition: all .25s ease-in-out;
+
+  &--show {
+    border-radius: 8px 8px 0 0;
+
+    .custom-select__current {
+      border-color: $accent;
+
+      &::after {
+        transform: rotate(-180deg) translateY(50%);
+      }
+    }
+
+    .custom-select__list {
+      pointer-events: auto;
+      visibility: visible;
+      opacity: 1;
+      background-color: $white;
+      z-index: 100;
+    }
+  }
+
+  &__current {
+    line-height: 1;
+    position: relative;
+    cursor: pointer;
+    padding-right: 38px;
+    transition: border-radius .3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 13px;
+      height: 6px;
+      background-image: url("/public/static/images/icons/select-arrow.svg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      transition: transform .3s;
+    }
+  }
+
+  &__list {
+    font-size: 16px;
+    border: 1px solid #b8c1c0;
+    width: 100.5%;
+    position: absolute;
+    left: -1px;
+    top: 59px;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 0 0 8px 8px;
+    max-height: 213px;
+    overflow-y: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .25s ease;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+  }
+
+  &__item {
+    padding: 15px 10px;
+    cursor: pointer;
+    transition: color .3s;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #b8c1c0;
+    }
+  }
+}
