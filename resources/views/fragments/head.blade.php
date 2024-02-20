@@ -10,6 +10,9 @@
     <title>{{ $title ?? 'Diseased | Магазин строительных материалов' }}</title>
     <link rel="icon" href="{{asset('static/images/icons/favicon.svg')}}" type="images/x-icon">
     <link rel="shortcut icon" href="{{asset('static/images/icons/favicon.svg')}}" type="images/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     @stack('head')
     @vite(['resources/scss/style.scss'])
     @livewireStyles

@@ -1,34 +1,23 @@
 .btn {
-    padding: 12px 20px;
-    font-weight: 600;
-    line-height: 1;
-    border-radius: 8px;
-    border: 2px solid transparent;
-    transition: color .4s, background-color .4s, border .4s, opacity .4s;
-    background-color: $primary400;
+  @include flex-align-center(7);
+  font-weight: 600;
+  line-height: 1;
+  max-width: max-content;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue35;
+  border-radius: 5px;
+  padding: 14px 25px;
+  box-sizing: border-box;
+  transition: background-color .4s, border-color .4s, opacity .4s, color .4s;
+  border: 1px solid transparent;
+  color: $white;
 
-    &:hover {
-        background-color: transparent;
-        border-color: $primary400;
-    }
+  &:hover {
+    background-color: $blue90;
+  }
 
-    &:focus {
-        opacity: .5;
-    }
-
-    &--dark {
-        background-color: transparent;
-        border-color: $black500;
-        color: $gray500;
-
-        &:hover {
-            color: $white;
-        }
-
-        &:focus {
-            border-color: $white;
-            color: $white;
-            opacity: .8;
-        }
-    }
+  &:focus {
+    opacity: .5;
+  }
 }

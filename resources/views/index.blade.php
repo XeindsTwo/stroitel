@@ -3,8 +3,11 @@
 @if (Auth::check() && Auth::user()->role === 'ADMIN')
   <livewire:add-user/>
 @endif
+@include('fragments.meta')
 @include('fragments.header')
 @include('home.home')
+@include('home.more')
+@include('home.benefits')
 @include('fragments/footer')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="

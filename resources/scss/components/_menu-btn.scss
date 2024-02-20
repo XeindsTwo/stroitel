@@ -6,7 +6,7 @@
   display: none;
   position: relative;
   border-radius: 50%;
-  border: 1px solid $gray-darker;
+  border: 1px solid $black800;
   padding: 18px 16px;
   transition: border .3s, opacity .3s;
 
@@ -23,7 +23,7 @@
   }
 
   &:hover {
-    border-color: $accent;
+    border-color: $primary400;
   }
 
   &:focus {

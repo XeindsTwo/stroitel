@@ -1,0 +1,82 @@
+.benefits {
+  background-color: $white;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__item {
+    @include flex-between-center-gap(20);
+    padding: 40px 30px;
+    border: 1px solid rgba($gray15, .1);
+    position: relative;
+    &::before {
+      @include pseudo;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      right: 0;
+      background-color: rgba($blue35, .4);
+    }
+
+    &:first-child, &:nth-child(2), &:nth-child(3) {
+      padding-top: 35px;
+      border-top: none;
+    }
+
+    &:nth-child(1), &:nth-child(4), &:nth-child(7), &:nth-child(10) {
+      border-left: none;
+      border-bottom: none;
+    }
+
+    &:nth-child(3), &:nth-child(6), &:nth-child(9) {
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &:nth-child(2), &:nth-child(5), &:nth-child(8), &:nth-child(11) {
+      border-left: none;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    &:nth-child(9) {
+      border-bottom: 1px solid rgba($gray15, .1);
+    }
+
+    &:nth-child(10) {
+      border-bottom: none;
+    }
+
+    &:nth-child(11) {
+      border-right: 1px solid rgba($gray15, .1);
+    }
+  }
+
+  &__content {
+    max-width: 270px;
+  }
+
+  &__number {
+    margin-bottom: 12px;
+    display: block;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 1.2;
+    color: $blue35;
+  }
+
+  .svg_icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .svg_icon__fill_light {
+    fill: $blue35;
+  }
+
+  .svg_icon__fill_dark {
+    fill: $blue90;
+  }
+}

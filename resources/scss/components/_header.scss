@@ -1,95 +1,112 @@
 .header {
-    padding: 20px 0;
-    border-bottom: 1px solid $black600;
+  background-color: $white;
+  align-self: flex-start;
 
-    &__inner {
-        @include flex-align-center(50);
+  &__inner {
+    padding: 30px 0;
+    @include flex-align-center(45);
+  }
+
+  &__delivery {
+    @include flex-column();
+    align-items: flex-start;
+    max-width: 310px;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  &__select {
+    color: $blue35;
+    transition: color .4s, opacity .4s;
+
+    &:hover {
+      color: $blue50;
     }
 
-    &__list {
-        @include flex-align-center(32);
-        align-items: flex-start;
+    &:focus {
+      opacity: .5;
+    }
+  }
+
+  &__call {
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 1px;
+    transition: opacity .4s;
+    line-height: 1.1;
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
     }
 
-    &__link {
-        transition: color .4s, opacity .4s, border .4s;
-        color: $gray500;
-        font-weight: 600;
-        border-bottom: 1px solid transparent;
-        padding-bottom: 2px;
-
-        &:hover {
-            color: $primary400;
-        }
-
-        &:focus {
-            color: $white;
-            border-bottom-color: $white;
-        }
+    &:focus {
+      opacity: .5;
     }
 
-    &__btn {
-        margin-left: auto;
+    &::before {
+      @include pseudo;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $blue90;
+      transition: width .4s;
+    }
+  }
 
-        &-balance {
-            padding: 8px 10px;
-        }
+  &__feedback {
+    margin-left: 100px;
+    text-align: right;
+    @include flex-column();
+
+    span {
+      font-size: 14px;
+      color: $gray15;
+    }
+  }
+
+  &__nav {
+    border-top: 1px solid $blue10;
+    padding: 25px 0;
+  }
+
+  &__list {
+    @include flex-between-center-gap(40);
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    padding-bottom: 2px;
+    transition: color .4s;
+
+    &:hover {
+      &::before {
+        width: 100%;
+      }
     }
 
-    &__auth {
-        @include flex-align-center(24);
-        margin-left: auto;
+    &:focus {
+      color: $blue30;
     }
 
-    &__balance {
-        @include flex-align-center(16);
-        padding: 7px 10px;
-        background-color: $black600;
-        border-radius: 8px;
-        font-size: 14px;
-
-        span {
-            font-weight: 500;
-        }
+    &::before {
+      @include pseudo;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $blue90;
+      transition: width .4s;
     }
+  }
 
-    &__actions {
-        @include flex-align-center(12);
-    }
-
-    &__action {
-        width: 44px;
-        height: 44px;
-        border-radius: 8px;
-        overflow: hidden;
-        @include flex-center;
-        transition: background-color .4s, opacity .4s;
-
-        &:hover {
-            img {
-                transform: scale(1.15);
-            }
-        }
-
-        &:focus {
-            opacity: .5;
-        }
-
-        img {
-            @include objectCoverBg;
-            transition: transform .4s;
-        }
-    }
-
-    &__logout {
-        background-color: $red800;
-
-        &:hover {
-            background-color: $red600;
-
-            svg path {
-                stroke: $white
-            }
-        }
-    }
+  &__catalog {
+    padding: 14px 18px;
+    gap: 15px;
+  }
 }

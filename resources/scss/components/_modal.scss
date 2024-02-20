@@ -1,157 +1,158 @@
 .modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    max-width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 500px;
+  width: 100%;
+  background-color: $black600;
+  padding: 20px;
+  border-radius: 16px;
+  font-size: 14px;
+  transform: translate(-50%, 0%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .4s;
+  z-index: 300;
+
+  &--active {
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  &__title {
+    display: inline-block;
+    font-size: 24px;
+    margin-bottom: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    &--bottom {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__text {
+    max-width: 420px;
+    margin-bottom: 24px;
+    color: #667085;
+  }
+
+  &__support {
+    @include flex-column(4);
+    margin-bottom: 20px;
+
+    span {
+      color: $gray500;
+    }
+  }
+
+  &__link {
+    transition: color .4s, opacity .4s;
+    color: $primary400;
+    align-self: flex-start;
+    font-weight: 600;
+
+    &:hover {
+      color: rgba($white, .4);
+    }
+
+    &:focus {
+      opacity: .4;
+    }
+  }
+
+  &__network {
+    @include flex-column(12);
+
+    span {
+      color: $gray500;
+    }
+  }
+
+  &__socials {
+    @include flex-align-center(12);
+  }
+
+  &__social {
+    width: 45px;
+    height: 45px;
+    @include flex-center;
+    background-color: $black700;
+    border-radius: 50%;
+    transition: background-color .4s, filter .4s;
+
+    &:hover {
+      background-color: $black800;
+    }
+
+    &:focus {
+      filter: grayscale(1);
+    }
+
+    img {
+      @include objectCoverBg;
+      height: auto;
+      width: 45%;
+    }
+  }
+
+  &__close {
+    padding: 1px;
+    display: flex;
+    transition: transform .7s, opacity .4s;
+    position: absolute;
+    right: 25px;
+
+    &:hover {
+      transform: rotate(180deg);
+
+      svg path {
+        stroke: $primary300;
+      }
+    }
+
+    &:focus {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__question {
+    text-align: center;
+    color: $gray500;
+  }
+
+  &__forgot {
+    display: block;
+    margin-left: auto;
+    margin-right: 5px;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    @include flex-column(20);
+    margin-bottom: 24px;
+  }
+
+  &__btn-auth {
     width: 100%;
-    background-color: $black600;
-    padding: 20px;
-    border-radius: 16px;
-    font-size: 14px;
-    transform: translate(-50%, 0%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: all .4s;
-    z-index: 300;
+    margin-bottom: 20px;
+  }
 
-    &--active {
-        transform: translate(-50%, -50%);
-        visibility: visible;
-        pointer-events: auto;
-        opacity: 1;
+  &__captcha {
+    @include flex-align-center(20);
+    margin-bottom: 17px;
+  }
+
+  &__refresh {
+    display: flex;
+
+    &:hover {
+      svg path {
+        stroke: $white;
+      }
     }
-
-    &__title {
-        display: inline-block;
-        font-size: 24px;
-        margin-bottom: 14px;
-        font-weight: 600;
-        line-height: 1.2;
-
-        &--bottom {
-            margin-bottom: 26px;
-        }
-    }
-
-    &__text {
-        max-width: 420px;
-        margin-bottom: 24px;
-        color: #667085;
-    }
-
-    &__support {
-        @include flex-column(4);
-        margin-bottom: 20px;
-
-        span {
-            color: $gray500;
-        }
-    }
-
-    &__link {
-        transition: color .4s, opacity .4s;
-        color: $primary400;
-        align-self: flex-start;
-        font-weight: 600;
-
-        &:hover {
-            color: rgba($white, .4);
-        }
-
-        &:focus {
-            opacity: .4;
-        }
-    }
-
-    &__network {
-        @include flex-column(12);
-
-        span {
-            color: $gray500;
-        }
-    }
-
-    &__socials {
-        @include flex-align-center(12);
-    }
-
-    &__social {
-        width: 45px;
-        height: 45px;
-        @include flex-center;
-        background-color: $black700;
-        border-radius: 50%;
-        transition: background-color .4s, filter .4s;
-
-        &:hover {
-            background-color: $black800;
-        }
-
-        &:focus {
-            filter: grayscale(1);
-        }
-
-        img {
-            @include objectCoverBg;
-            height: auto;
-            width: 45%;
-        }
-    }
-
-    &__close {
-        padding: 1px;
-        display: flex;
-        transition: transform .7s, opacity .4s;
-        position: absolute;
-        right: 25px;
-
-        &:hover {
-            transform: rotate(180deg);
-
-            svg path {
-                stroke: $primary300;
-            }
-        }
-
-        &:focus {
-            transform: rotate(180deg);
-        }
-    }
-
-    &__question {
-        text-align: center;
-        color: $gray500;
-    }
-
-    &__forgot {
-        display: block;
-        margin-left: auto;
-        margin-right: 5px;
-        margin-bottom: 24px;
-    }
-
-    &__list {
-        @include flex-column(20);
-        margin-bottom: 24px;
-    }
-
-    &__btn-auth {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    &__captcha {
-        @include flex-align-center(20);
-        margin-bottom: 17px;
-    }
-
-    &__refresh {
-        display: flex;
-        &:hover {
-            svg path {
-                stroke: $white;
-            }
-        }
-    }
+  }
 }

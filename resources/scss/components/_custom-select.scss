@@ -16,7 +16,7 @@
     border-radius: 8px 8px 0 0;
 
     .custom-select__current {
-      border-color: $accent;
+      border-color: $primary400;
 
       &::after {
         transform: rotate(-180deg) translateY(50%);
@@ -86,7 +86,7 @@
     transition: color .3s;
 
     &:hover {
-      color: $accent;
+      color: $primary400;
     }
 
     &:not(:last-child) {

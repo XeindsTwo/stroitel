@@ -53,7 +53,7 @@ return [
         'mailgun' => [
             'transport' => 'mailgun',
             // 'client' => [
-            //     'timeout' => 5,
+            //     'timeout' => 5.png,
             // ],
         ],
 
@@ -61,7 +61,7 @@ return [
             'transport' => 'postmark',
             // 'message_stream_id' => null,
             // 'client' => [
-            //     'timeout' => 5,
+            //     'timeout' => 5.png,
             // ],
         ],
 
