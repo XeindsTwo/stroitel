@@ -60,6 +60,7 @@ html {
   border-radius: 3px;
   max-width: max-content;
   display: inline-block;
+  align-self: flex-start;
 
   &:hover {
     opacity: .5;
@@ -99,4 +100,5 @@ html {
 
 ::selection {
   background: $blue30;
+  color: $blue90;
 }

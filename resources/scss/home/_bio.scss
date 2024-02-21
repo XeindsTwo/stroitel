@@ -1,0 +1,75 @@
+.bio {
+  &__inner {
+    @include flex-between(40);
+  }
+
+  &__decor {
+    position: relative;
+    padding: 45px 0;
+
+    &::before {
+      @include pseudo;
+      top: 0;
+      right: 30%;
+      width: 100vw;
+      height: 100%;
+      z-index: -1;
+
+      background-color: rgba($blue30, .25);
+      position: absolute;
+    }
+
+    img {
+      @include objectCoverBg;
+    }
+  }
+
+  &__content {
+    padding: 45px 0;
+    max-width: 710px;
+  }
+
+  &__title {
+    font-size: 26px;
+    position: relative;
+    font-weight: 300;
+    font-style: italic;
+    padding-left: 40px;
+    margin-bottom: 76px;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 0;
+  }
+
+  &__profile {
+    padding: 50px 35px 30px;
+    background-color: rgba($blue90, .08);
+    position: relative;
+  }
+
+  &__more {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: $blue50;
+    border-bottom: 1px solid transparent;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      color: $blue90;
+    }
+
+    &:focus {
+      color: $blue50;
+      border-bottom-color: $blue50;
+    }
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 13px;
+  }
+}

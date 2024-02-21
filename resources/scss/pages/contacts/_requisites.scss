@@ -1,0 +1,47 @@
+.requisites {
+  padding: 50px 0 35px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 80px;
+  }
+
+  &__column {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+
+    &--unique {
+      @include flex-column(12)
+    }
+  }
+
+  &__item {
+    @include flex-column(12);
+    font-size: 14px;
+
+    &:last-child {
+      grid-column-start: 2;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $blue35;
+    font-weight: 500;
+  }
+
+  &__data {
+    columns: 2 30px;
+    font-size: 14px;
+
+    p + p {
+      margin-top: 17px;
+    }
+  }
+}

@@ -5,8 +5,12 @@
 @import 'global';
 
 @import 'home/home';
+@import 'home/best-orders';
+@import 'home/about';
 @import 'home/more';
 @import 'home/benefits';
+@import 'home/original';
+@import 'home/bio';
 
 @import 'pages/auth';
 @import 'pages/error-page';
@@ -20,3 +24,7 @@
 @import 'components/custom-select';
 
 @import 'fragments/meta';
+@import 'fragments/breadcrumbs';
+
+@import "pages/privacy";
+@import "pages/contacts/contacts";

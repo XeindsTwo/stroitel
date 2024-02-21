@@ -47,7 +47,7 @@
           <a class="header__link" href="">Статьи и новости</a>
         </li>
         <li>
-          <a class="header__link" href="">Контакты</a>
+          <a class="header__link" href="{{route('contacts')}}">Контакты</a>
         </li>
         <li>
           <a class="header__link" href="">Личный кабинет</a>
