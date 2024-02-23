@@ -35,13 +35,13 @@
           </a>
         </li>
         <li>
-          <a class="header__link" href="">О компании</a>
+          <a class="header__link" href="{{route('about')}}">О компании</a>
         </li>
         <li>
           <a class="header__link" href="">Акции</a>
         </li>
         <li>
-          <a class="header__link" href="">Партнерам</a>
+          <a class="header__link" href="{{route('partneram')}}">Партнерам</a>
         </li>
         <li>
           <a class="header__link" href="">Статьи и новости</a>

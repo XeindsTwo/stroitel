@@ -22,9 +22,13 @@
 @import 'components/form-elements';
 @import 'components/modal';
 @import 'components/custom-select';
+@import 'components/accordion';
 
 @import 'fragments/meta';
 @import 'fragments/breadcrumbs';
 
+@import "pages/company/company";
 @import "pages/privacy";
 @import "pages/contacts/contacts";
+@import "pages/payment";
+@import "pages/partneram";

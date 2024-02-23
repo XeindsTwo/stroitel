@@ -26,7 +26,7 @@
             осведомлены о реальных затратах, необходимых для успешного завершения проектов строительства.
           </p>
         </div>
-        <a class="about__link" href="">Узнайте больше о компании Diseased Industrial</a>
+        <a class="about__link" href="{{route('about')}}">Узнайте больше о компании Diseased Industrial</a>
       </div>
       <div class="about__decor">
         <img src="{{asset('static/images/about.png')}}" width="480" height="510" alt="Diseased компания">
