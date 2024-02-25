@@ -4,15 +4,6 @@
 @import 'libs';
 @import 'global';
 
-@import 'components/btn';
-@import 'components/header';
-@import 'components/footer';
-@import 'components/menu-btn';
-@import 'components/form-elements';
-@import 'components/modal';
-@import 'components/custom-select';
-@import 'components/accordion';
-
 @import 'home/home';
 @import 'home/best-orders';
 @import 'home/about';
@@ -24,6 +15,15 @@
 @import 'pages/auth';
 @import 'pages/error-page';
 
+@import 'components/btn';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/menu-btn';
+@import 'components/form-elements';
+@import 'components/modal';
+@import 'components/custom-select';
+@import 'components/accordion';
+
 @import 'fragments/meta';
 @import 'fragments/breadcrumbs';
 
@@ -32,4 +32,3 @@
 @import "pages/contacts/contacts";
 @import "pages/payment";
 @import "pages/partneram";
-@import "pages/profile";

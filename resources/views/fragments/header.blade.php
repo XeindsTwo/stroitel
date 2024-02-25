@@ -50,11 +50,7 @@
           <a class="header__link" href="{{route('contacts')}}">Контакты</a>
         </li>
         <li>
-          @if(Auth::check())
-            <a class="header__link" href="{{route('profile')}}">Личный кабинет</a>
-          @else
-            <a class="header__link" href="{{route('login')}}">Личный кабинет</a>
-          @endif
+          <a class="header__link" href="">Личный кабинет</a>
         </li>
       </ul>
     </nav>

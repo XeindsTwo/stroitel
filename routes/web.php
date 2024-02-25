@@ -1,8 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CaptchaController;
 use Illuminate\Support\Facades\Route;
 
-include 'pages/errors.php';
+include 'errors.php';
 
-Route::get('/profile', [ProfileController::class, 'show'])->middleware('auth')->name('profile');
+Route::get('/generate-captcha', [CaptchaController::class, 'generateCaptcha'])->name('generate-captcha');
+Route::post('/validate-captcha', [CaptchaController::class, 'validateCaptcha']);
+Route::get('/profile', function () {
+  return view('profile');
+})->middleware('auth');

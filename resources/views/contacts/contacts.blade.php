@@ -36,8 +36,7 @@
           Яндекс Карты</a>
         <iframe
             src="https://yandex.ru/map-widget/v1/?ll=39.901090%2C44.774682&mode=whatshere&whatshere%5Bpoint%5D=39.901090%2C44.774682&whatshere%5Bzoom%5D=17&z=17"
-            width="560" height="400" frameborder="1" allowfullscreen="allowfullscreen"
-            style="position:relative;"></iframe>
+            width="560" height="400" frameborder="1" allowfullscreen="allowfullscreen" style="position:relative;"></iframe>
       </div>
     </div>
   </div>
