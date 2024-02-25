@@ -1,21 +1,23 @@
 @include('fragments/head', ['title' => 'Авторизация'])
 <body class="body">
+@include('fragments.meta')
+@include('fragments.header')
+<div class="container">
+  <div class="breadcrumbs">
+    <div class="breadcrumbs__top">
+      <div class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="{{route('index')}}">Главная</a>
+      </div>
+      <div class="breadcrumbs__item">
+        <span>Вход в личный кабинет</span>
+      </div>
+    </div>
+  </div>
+</div>
 <section class="auth">
   <div class="container">
     <div class="auth__content">
-      <a class="auth__logo logo" href="/">
-        <img class="logo" width="226" height="52" src="{{asset('static/images/icons/logo.svg')}}"
-             alt="логотип">
-      </a>
-      <a class="auth__back" href="/">
-        <svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path
-              d="M0.292786 6.69471C0.105315 6.50718 0 6.25288 0 5.98771C0 5.72255 0.105315 5.46824 0.292786 5.28071L5.29279 0.280712C5.48139 0.0985542 5.73399 -0.00224062 5.99619 3.78025e-05C6.25838 0.00231622 6.5092 0.107485 6.6946 0.292894C6.88001 0.478302 6.98518 0.729114 6.98746 0.991311C6.98974 1.25351 6.88894 1.50611 6.70679 1.69471L3.41379 4.98771H20.9998C21.265 4.98771 21.5194 5.09307 21.7069 5.28061C21.8944 5.46814 21.9998 5.7225 21.9998 5.98771C21.9998 6.25293 21.8944 6.50728 21.7069 6.69482C21.5194 6.88235 21.265 6.98771 20.9998 6.98771H3.41379L6.70679 10.2807C6.8023 10.373 6.87848 10.4833 6.93089 10.6053C6.9833 10.7273 7.01088 10.8585 7.01204 10.9913C7.01319 11.1241 6.98789 11.2558 6.93761 11.3787C6.88733 11.5016 6.81307 11.6132 6.71918 11.7071C6.62529 11.801 6.51364 11.8753 6.39074 11.9255C6.26784 11.9758 6.13616 12.0011 6.00339 12C5.87061 11.9988 5.73939 11.9712 5.61738 11.9188C5.49538 11.8664 5.38503 11.7902 5.29279 11.6947L0.292786 6.69471Z"
-              fill="#4E1528"/>
-        </svg>
-        Вернуться на главную
-      </a>
-      <h2 class="auth__title">Вход в профиль</h2>
+      <h1 class="auth__title title">Вход в профиль</h1>
       <p class="auth__text">Вы увидите историю заказов, будете иметь возможность оставлять отзывы и т.д.</p>
       <form id="formAuth" method="POST" action="{{ route('login') }}">
         @csrf
@@ -33,31 +35,11 @@
             <input class="input" id="password" type="password" placeholder="Введите пароль" name="password"
                    value="{{ old('password') }}" required>
           </li>
-          <li class="auth__item">
-            <label class="label" for="captcha">Введите капчу</label>
-            <div class="auth__head">
-              <img class="auth__captcha" id="captchaImage" src="{{ route('generate-captcha') }}"
-                   alt="captcha">
-              <button class="modal__refresh" id="refreshCaptcha" type="button">
-                <svg width="25" height="26" viewBox="0 0 25 26" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                  <path
-                      d="M2.6416 10.6084C3.25274 8.32764 4.63581 6.3293 6.55515 4.95392C8.4745 3.57854 10.8114 2.91121 13.1676 3.06564C15.5238 3.22008 17.7535 4.18672 19.4769 5.80086C21.2003 7.41499 22.3107 9.57676 22.6189 11.9178C22.9271 14.2589 22.4141 16.6344 21.1672 18.6396C19.9203 20.6448 18.0167 22.1556 15.7807 22.9146C13.5448 23.6736 11.1148 23.6338 8.90491 22.802C6.69499 21.9703 4.84184 20.398 3.66121 18.3531"
-                      stroke="#718BFF" stroke-width="1.3" stroke-linejoin="round"/>
-                  <path d="M0.973025 5.76904L2.29381 10.6983L7.22302 9.37748" stroke="#718BFF"
-                        stroke-width="1.3" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-            <span class="error" id="captchaError">Капча была введена неверно, попробуйте снова</span>
-            <input class="input" id="captcha" name="captcha" type="text" placeholder="Введите капчу"
-                   required>
-          </li>
         </ul>
         <span class="auth__link">
-                    Нет аккаунта? <a href="{{route('register')}}">Тогда зарегистрируйтесь</a>
-                </span>
-        <button class="auth__btn" id="loginBtn" type="submit">Войти</button>
+          Нет аккаунта? <a href="{{route('register')}}">Тогда зарегистрируйтесь</a>
+        </span>
+        <button class="auth__btn btn" id="loginBtn" type="submit">Войти</button>
       </form>
     </div>
     <div class="auth__decor"></div>
@@ -66,5 +48,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-@vite(['resources/js/captcha.js'])
 </body>
