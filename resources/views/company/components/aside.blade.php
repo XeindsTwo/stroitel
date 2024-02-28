@@ -14,7 +14,8 @@
       </a>
     </li>
     <li>
-      <a class="about-aside__link" href="">
+      <a class="about-aside__link {{ request()->is('reviews*') ? 'active' : '' }}"
+         href="{{route('reviews')}}">
         Отзывы о компании
       </a>
     </li>

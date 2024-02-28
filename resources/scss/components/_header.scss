@@ -109,4 +109,28 @@
     padding: 14px 18px;
     gap: 15px;
   }
+
+  &__logo {
+    margin-bottom: 25px;
+  }
+
+  &__admin {
+    &-list {
+      @include flex-between-center-gap(30);
+    }
+
+    &-link {
+      font-size: 16px;
+      transition: color .4s, outline .4s;
+      border-radius: 5px;
+
+      &:hover {
+        color: $blue35;
+      }
+
+      &:focus {
+        outline: 1px solid $blue35;
+      }
+    }
+  }
 }

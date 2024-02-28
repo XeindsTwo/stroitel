@@ -143,8 +143,7 @@
           <li class="partneram__column">
             <label>
               <input class="input" id="email" name="email" type="email" maxlength="255"
-                     required
-                     placeholder="Ваша электронная почта">
+                     required placeholder="Ваша электронная почта">
             </label>
             <label>
               <input class="input" id="organization_name" name="organization_name"
@@ -152,8 +151,8 @@
                      type="text" required placeholder="Наименование вашей организации">
             </label>
             <label>
-              <input class="input" id="phone" name="phone" type="text" maxlength="255" required
-                     placeholder="Номер телефона для связи">
+              <input class="input" id="phone" name="phone" type="text" maxlength="255"
+                     required placeholder="Номер телефона для связи" data-tel-input>
             </label>
           </li>
           <li class="partneram__column">
@@ -206,7 +205,7 @@
           return response.json();
         })
         .then(data => {
-          alert('Заявка успешно отправлена');
+          alert('Заявка успешно отправлена, ожидайте ответа по почте');
           form.reset();
         })
         .catch(error => {
@@ -215,3 +214,4 @@
     });
   });
 </script>
+@vite(['resources/js/components/phone-mask.js'])

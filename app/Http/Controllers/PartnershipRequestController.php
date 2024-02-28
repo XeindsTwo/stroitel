@@ -9,12 +9,6 @@ use Illuminate\Support\Facades\RateLimiter;
 
 class PartnershipRequestController extends Controller
 {
-  public function index()
-  {
-    $requests = PartnershipRequest::all();
-    return response()->json($requests);
-  }
-
   public function store(Request $request)
   {
     $key = 'partnership_requests_' . $request->ip();

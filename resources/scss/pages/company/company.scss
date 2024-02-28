@@ -2,15 +2,21 @@
 @import "./company-history";
 @import "./company-numbers";
 @import "./letters";
+@import "./reviews";
 
 .company {
   &__inner {
     display: flex;
     gap: 35px;
+
+    &.no-reviews {
+      margin-bottom: 35px;
+    }
   }
 
   &--left {
     padding-left: 20px;
+    width: 100%;
   }
 
   &__top {

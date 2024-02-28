@@ -1,0 +1,52 @@
+.admin {
+  &__list {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    padding-bottom: 20px;
+  }
+
+  &__item {
+    border-radius: 6px;
+    padding: 20px;
+    border: 1px solid $blue35;
+    @include flex-column(20);
+
+    &-link {
+      color: #006CC4;
+      transition: color .4s, opacity .4s;
+
+      &:hover {
+        color: #2F323C;
+      }
+
+      &:focus {
+        opacity: .5;
+      }
+    }
+  }
+
+  &__empty {
+    margin-top: 30px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &__delete {
+    color: crimson;
+    text-align: left;
+    font-size: 14px;
+    transition: color .4s, outline .4s, border .4s;
+    padding-bottom: 1px;
+    max-width: max-content;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom-color: crimson;
+    }
+
+    &:focus {
+      outline: 1px solid;
+    }
+  }
+}
