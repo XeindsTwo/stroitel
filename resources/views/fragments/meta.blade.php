@@ -1,9 +1,10 @@
+@vite(['resources/js/components/feedback-modal.js'])
 <div class="meta">
   <div class="container">
     <div class="meta__inner">
       <div class="meta__links">
-        <a class="meta__link" href="">Заказать звонок</a>
-        <a class="meta__link" href="">Каталог PDF</a>
+        <button class="meta__link" type="button" id="feedback-open">Заказать звонок</button>
+        <a class="meta__link" href="https://aridal.ru/pdf/buklet_2019.pdf" target="_blank">Каталог PDF</a>
       </div>
       <form class="meta__form" action="">
         <label for="search">
@@ -32,3 +33,4 @@
     </div>
   </div>
 </div>
+@include('fragments.feedback-modal')

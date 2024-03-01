@@ -5,7 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin', 'checkdb'])->group(function () {
   Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
   Route::get('/admin/users/all', [UserController::class, 'getAllUsers']);
   Route::get('/admin/users/search', [UserController::class, 'search'])->name('admin.users.search');

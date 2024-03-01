@@ -8,7 +8,7 @@
     @if($user->role === 'ADMIN')
       <div class="profile__admin">
         Вы имеете доступ к админ-панели
-        <a class="profile__link" href="{{ route('admin.partnership-requests') }}">Перейти в админ-панель</a>
+        <a class="profile__link" href="{{ route('admin.feedback-request') }}">Перейти в админ-панель</a>
       </div>
     @endif
   </div>

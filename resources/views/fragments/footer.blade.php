@@ -17,9 +17,9 @@
           <span class="footer__name">Полезные ссылки</span>
           <div class="footer__links">
             <a class="footer__link" href="{{route('contacts')}}">Контакты</a>
-            <a class="footer__link" href="">Каталог PDF</a>
+            <a class="footer__link" href="https://aridal.ru/pdf/buklet_2019.pdf" target="_blank">Каталог PDF</a>
             <a class="footer__link" href="">Перспективы компании</a>
-            <a class="footer__link" href="">Партнерам</a>
+            <a class="footer__link" href="{{route('partneram')}}">Партнерам</a>
           </div>
         </li>
       </ul>
@@ -42,3 +42,4 @@
     </div>
   </div>
 </footer>
+@vite(['resources/js/components/phone-mask.js'])

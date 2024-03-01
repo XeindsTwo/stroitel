@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
+use App\Models\FeedbackRequest;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
-class ReviewController extends Controller
+class FeedbackRequestController extends Controller
 {
-  public function showReviewsPage()
-  {
-    $reviews = Review::where('status', true)->latest()->get();
-    return view('company.reviews', compact('reviews'));
-  }
-
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
-      'name' => 'required|string|regex:/^[\p{Cyrillic}A-Za-z\s\-]+$/u|max:255',
-      'email' => 'required|email|max:255',
-      'comment' => 'required|string|max:2000',
-      'rating' => 'required|integer|min:1|max:5',
+      'name' => 'required|string|max:70|regex:/^[А-Яа-яЁё\s\-]+$/u',
+      'email' => 'required|email|max:120',
+      'phone' => 'required|string|max:20',
+      'comment' => 'nullable|string|max:2000',
+      'file' => 'nullable|file|max:2048|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png',
     ]);
 
     if ($validator->fails()) {
@@ -30,22 +26,30 @@ class ReviewController extends Controller
     }
 
     $maxRequests = 3;
-    $decayInSeconds = 30; //1800 секунд = 30 минутам
+    $decayInSeconds = 10; // 30 минут = 1800 секунд
 
-    $key = 'review_requests_' . $request->ip();
+    $key = 'feedback_requests_' . $request->ip();
 
     if (!RateLimiter::tooManyAttempts($key, $maxRequests)) {
       RateLimiter::hit($key, $decayInSeconds);
 
       try {
-        $review = Review::create([
+        $filePath = null;
+        if ($request->hasFile('file')) {
+          $file = $request->file('file');
+          $fileName = Str::random(10) . '.' . $file->getClientOriginalExtension();
+          $filePath = $file->storeAs('feedback_files', $fileName);
+        }
+
+        $feedbackRequest = FeedbackRequest::create([
           'name' => $request->name,
           'email' => $request->email,
+          'phone' => $request->phone,
           'comment' => $request->comment,
-          'rating' => $request->rating,
+          'file_path' => $filePath,
         ]);
 
-        return response()->json(['message' => 'Отзыв успешно отправлен. Ожидайте проверки отзыва администратором. В дальнейшем отзыв будет одобрен или отклонён', 'review' => $review]);
+        return response()->json(['message' => 'Фидбек-запрос успешно создан', 'feedback_request' => $feedbackRequest], 201);
       } catch (Exception) {
         return response()->json(['error' => 'Ошибка при обработке запроса'], 500);
       }

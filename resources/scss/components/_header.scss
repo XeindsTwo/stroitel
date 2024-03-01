@@ -116,7 +116,7 @@
 
   &__admin {
     &-list {
-      @include flex-between-center-gap(30);
+      @include flex-align-center(30);
     }
 
     &-link {
@@ -130,6 +130,11 @@
 
       &:focus {
         outline: 1px solid $blue35;
+      }
+
+      &.active {
+        color: $blue35;
+        pointer-events: none;
       }
     }
   }

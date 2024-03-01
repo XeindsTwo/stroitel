@@ -79,3 +79,9 @@ input[type=number]::-webkit-outer-spin-button {
 svg {
   transition: stroke .4s, fill .4s;
 }
+
+pre {
+  white-space: pre-wrap;
+  font: inherit;
+  margin: 0;
+}

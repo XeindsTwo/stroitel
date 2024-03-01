@@ -1,4 +1,4 @@
-@include('fragments/head', ['title' => 'Оплата и доставка'])
+@include('fragments/head', ['title' => 'Благодарственные письма'])
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
 <body class="body">
 @include('fragments.meta')

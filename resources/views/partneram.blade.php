@@ -214,4 +214,3 @@
     });
   });
 </script>
-@vite(['resources/js/components/phone-mask.js'])

@@ -1,4 +1,4 @@
-@include('fragments/head', ['title' => 'Оплата и доставка'])
+@include('fragments/head', ['title' => 'Отзывы о компании'])
 <body class="body">
 @include('fragments.meta')
 @include('fragments.header')

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header__inner">
       <a href="/" class="logo">
-        <img src="{{asset('static/images/icons/logo-long.svg')}}" alt="">
+        <img src="{{asset('static/images/icons/logo-long.svg')}}" alt="логотип компании">
       </a>
       <div class="header__delivery">
         <button class="header__select" type="button">Выберите ваш город (Белореченск)</button>
