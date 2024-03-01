@@ -31,11 +31,13 @@
         @if($feedback->comment)
           <p>Комментарий: {{ $feedback->comment_feedback }}</p>
         @endif
-        @if($feedback->file_path)
-          <p>
-            Файл: <a class="admin__item-link" href="{{asset($feedback->file_path)}}" download>скачать документ</a>
-          </p>
-        @endif
+          @if($feedback->file_path)
+              <p>
+                  Файл:
+                  <a class="admin__item-link"
+                     href="{{ asset('storage/' . $feedback->file_path) }}" download>скачать документ</a>
+              </p>
+          @endif
       </li>
     @endforeach
   </ul>

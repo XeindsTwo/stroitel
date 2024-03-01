@@ -33,26 +33,24 @@ class FeedbackRequestController extends Controller
     if (!RateLimiter::tooManyAttempts($key, $maxRequests)) {
       RateLimiter::hit($key, $decayInSeconds);
 
-      try {
-        $filePath = null;
-        if ($request->hasFile('file')) {
-          $file = $request->file('file');
-          $fileName = Str::random(10) . '.' . $file->getClientOriginalExtension();
-          $filePath = $file->storeAs('feedback_files', $fileName);
+        try {
+            $filePath = null;
+            if ($request->hasFile('file')) {
+                $filePath = $request->file('file')->store('feedback_files', 'public');
+            }
+
+            $feedbackRequest = FeedbackRequest::create([
+                'name_feedback' => $request->name_feedback,
+                'email_feedback' => $request->email_feedback,
+                'phone_feedback' => $request->phone_feedback,
+                'comment_feedback' => $request->comment_feedback,
+                'file_path' => $filePath,
+            ]);
+
+            return response()->json(['message' => 'Фидбек-запрос успешно создан', 'feedback_request' => $feedbackRequest], 201);
+        } catch (Exception $e) {
+            return response()->json(['error' => 'Ошибка при обработке запроса ' . $e->getMessage()], 500);
         }
-
-          $feedbackRequest = FeedbackRequest::create([
-              'name_feedback' => $request->name_feedback,
-              'email_feedback' => $request->email_feedback,
-              'phone_feedback' => $request->phone_feedback,
-              'comment_feedback' => $request->comment_feedback,
-              'file_path' => $filePath,
-          ]);
-
-        return response()->json(['message' => 'Фидбек-запрос успешно создан', 'feedback_request' => $feedbackRequest], 201);
-      } catch (Exception $e) {
-        return response()->json(['error' => 'Ошибка при обработке запроса ' . $e->getMessage()], 500);
-      }
     } else {
       $retryAfter = RateLimiter::availableIn($key);
       return response()->json(['error' => 'Превышено максимальное количество запросов. Пожалуйста, попробуйте снова через ' . $retryAfter . ' секунд.'], 429);

@@ -8,7 +8,7 @@
   <h2 class="modal__title">
     Задайте любой вопрос или отправьте заявку
   </h2>
-  <form class="modal__form" id="feedback-form" action="{{route('feedback-request.store')}}">
+  <form class="modal__form" enctype="multipart/form-data" id="feedback-form" action="{{route('feedback-request.store')}}">
     @csrf
     <ul class="modal__list">
       <li>
