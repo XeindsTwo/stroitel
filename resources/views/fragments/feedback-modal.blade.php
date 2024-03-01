@@ -12,21 +12,21 @@
     @csrf
     <ul class="modal__list">
       <li>
-        <input class="input" id="name" name="name"
+        <input class="input" id="name_feedback" name="name_feedback"
                maxlength="70" type="text" placeholder="Введите имя"
                pattern="[А-Яа-яЁё\s\-]+" required
                title="Имя может содержать только кириллицу, пробелы и дефисы"
         >
       </li>
       <li>
-        <input class="input" id="phone" name="phone" type="text" placeholder="Введите номер телефона" required
+        <input class="input" id="phone_feedback" name="phone_feedback" type="text" placeholder="Введите номер телефона" required
                data-tel-input>
       </li>
       <li>
-        <input class="input" id="email" name="email" type="email" maxlength="120" placeholder="Введите почту" required>
+        <input class="input" id="email_feedback" name="email_feedback" type="email" maxlength="120" placeholder="Введите почту" required>
       </li>
       <li>
-        <textarea class="input input--textarea" id="comment" name="comment" maxlength="2000"
+        <textarea class="input input--textarea" id="comment_feedback" name="comment_feedback" maxlength="2000"
                   placeholder="Ваш комментарий (необязательно)"></textarea>
       </li>
       <li>
@@ -56,7 +56,7 @@
     </svg>
   </button>
   <h2 class="modal__title">
-    Поздравляем! Заявки была успешно отправлена
+    Поздравляем! Заявка была успешно отправлена
   </h2>
   <ul class="modal__list modal__list--bottom">
     <p class="modal__text">

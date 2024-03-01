@@ -1,25 +1,41 @@
 .profile {
-  padding: 40px 0;
+    padding: 40px 0;
 
-  &__admin {
-    background-color: $blue35;
-    max-width: 340px;
-    color: $white;
-    padding: 20px;
-    border-radius: 7px;
-  }
+    &__logout {
+        color: $red500;
+        transition: color .4s, border .4s, outline .4s;
+        border-bottom: 1px solid transparent;
+        margin-bottom: 50px;
 
-  &__link {
-    display: inline-block;
-    margin-top: 8px;
-    transition: color .4s, opacity .4s;
+        &:hover {
+            border-bottom-color: $red600;
+            color: $red600;
+        }
 
-    &:hover {
-      color: rgba($white, .7);
+        &:focus {
+            outline: 1px solid;
+        }
     }
 
-    &:focus {
-      opacity: .5;
+    &__admin {
+        background-color: $blue90;
+        max-width: 340px;
+        color: $white;
+        padding: 20px;
+        border-radius: 7px;
     }
-  }
+
+    &__link {
+        display: inline-block;
+        margin-top: 8px;
+        transition: color .4s, opacity .4s;
+
+        &:hover {
+            color: rgba($white, .7);
+        }
+
+        &:focus {
+            opacity: .5;
+        }
+    }
 }

@@ -14,10 +14,10 @@ class FeedbackRequestController extends Controller
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
-      'name' => 'required|string|max:70|regex:/^[А-Яа-яЁё\s\-]+$/u',
-      'email' => 'required|email|max:120',
-      'phone' => 'required|string|max:20',
-      'comment' => 'nullable|string|max:2000',
+      'name_feedback' => 'required|string|max:70|regex:/^[А-Яа-яЁё\s\-]+$/u',
+      'email_feedback' => 'required|email|max:120',
+      'phone_feedback' => 'required|string|max:20',
+      'comment_feedback' => 'nullable|string|max:2000',
       'file' => 'nullable|file|max:2048|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png',
     ]);
 
@@ -41,17 +41,17 @@ class FeedbackRequestController extends Controller
           $filePath = $file->storeAs('feedback_files', $fileName);
         }
 
-        $feedbackRequest = FeedbackRequest::create([
-          'name' => $request->name,
-          'email' => $request->email,
-          'phone' => $request->phone,
-          'comment' => $request->comment,
-          'file_path' => $filePath,
-        ]);
+          $feedbackRequest = FeedbackRequest::create([
+              'name_feedback' => $request->name_feedback,
+              'email_feedback' => $request->email_feedback,
+              'phone_feedback' => $request->phone_feedback,
+              'comment_feedback' => $request->comment_feedback,
+              'file_path' => $filePath,
+          ]);
 
         return response()->json(['message' => 'Фидбек-запрос успешно создан', 'feedback_request' => $feedbackRequest], 201);
-      } catch (Exception) {
-        return response()->json(['error' => 'Ошибка при обработке запроса'], 500);
+      } catch (Exception $e) {
+        return response()->json(['error' => 'Ошибка при обработке запроса ' . $e->getMessage()], 500);
       }
     } else {
       $retryAfter = RateLimiter::availableIn($key);

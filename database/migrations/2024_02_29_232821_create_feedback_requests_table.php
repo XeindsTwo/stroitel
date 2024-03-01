@@ -9,10 +9,10 @@ return new class extends Migration {
   {
     Schema::create('feedback_requests', function (Blueprint $table) {
       $table->id();
-      $table->string('name');
-      $table->string('email');
-      $table->string('phone');
-      $table->text('comment')->nullable();
+      $table->string('name_feedback');
+      $table->string('email_feedback');
+      $table->string('phone_feedback');
+      $table->text('comment_feedback')->nullable();
       $table->string('file_path')->nullable();
       $table->timestamps();
     });

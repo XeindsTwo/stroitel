@@ -5,7 +5,7 @@
   <div class="breadcrumbs">
     <div class="breadcrumbs__top">
       <div class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="{{route('admin.partnership-requests')}}">Главная админ-панели</a>
+        <a class="breadcrumbs__link" href="{{route('admin.feedback-request')}}">Главная админ-панели</a>
       </div>
       <div class="breadcrumbs__item">
         <span>Управление одобренными отзывами магазина</span>
@@ -20,7 +20,7 @@
     Отзыв можно удалить, но он будет удалён окончательно из БД
   </p>
   @if($approvedReviews->isEmpty())
-    <p class="admin__empty">Не одобренных отзывов о магазине ещё не существует :(</p>
+    <p class="admin__empty">Текущих отзывов о магазине ещё не существует :(</p>
   @endif
   <ul class="admin__list">
     @foreach($approvedReviews as $review)
