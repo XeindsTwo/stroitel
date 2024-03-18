@@ -10,10 +10,10 @@ class FeedbackRequest extends Model
   use HasFactory;
 
   protected $fillable = [
-    'name',
-    'email',
-    'phone',
-    'comment',
+    'name_feedback',
+    'email_feedback',
+    'phone_feedback',
+    'comment_feedback',
     'file_path',
   ];
 }
