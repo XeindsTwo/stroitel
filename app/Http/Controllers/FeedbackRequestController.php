@@ -38,7 +38,8 @@ class FeedbackRequestController extends Controller
         if ($request->hasFile('file')) {
           $file = $request->file('file');
           $fileName = Str::random(10) . '.' . $file->getClientOriginalExtension();
-          $filePath = $file->storeAs('feedback_files', $fileName);
+          $filePublicPath = $file->storeAs('public/feedback_files', $fileName);
+          $filePath = Str::replaceFirst('public/', '', $filePublicPath);
         }
 
         $feedbackRequest = FeedbackRequest::create([

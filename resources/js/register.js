@@ -157,13 +157,9 @@ $(document).ready(function () {
     const hasErrors = $(".error--active").length > 0;
 
     if (nameValid && emailValid && loginValid && passwordValid && !hasErrors) {
-      submitButton.prop("disabled", false);
-      submitButton.css("opacity", "1");
-      submitButton.css("pointer-events", "auto");
+      console.log('123')
     } else {
-      submitButton.prop("disabled", true);
-      submitButton.css("opacity", "0.6");
-      submitButton.css("pointer-events", "none");
+      console.log('123')
     }
   }
 

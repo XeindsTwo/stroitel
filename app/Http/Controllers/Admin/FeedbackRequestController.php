@@ -21,7 +21,8 @@ class FeedbackRequestController extends Controller
       $feedbackRequest = FeedbackRequest::findOrFail($id);
 
       if ($feedbackRequest->file_path) {
-        Storage::delete($feedbackRequest->file_path);
+        $publicFilePath = 'public/' . $feedbackRequest->file_path;
+        Storage::delete($publicFilePath);
       }
 
       $feedbackRequest->delete();

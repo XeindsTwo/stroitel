@@ -1,0 +1,49 @@
+.create-product {
+  margin-top: 20px;
+  max-width: 800px;
+  padding-bottom: 25px;
+
+  &__list {
+    @include flex-column(25);
+  }
+
+  &__list {
+    margin-bottom: 25px;
+  }
+
+  &__properties {
+    @include flex-column(35);
+    margin-bottom: 40px;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px 25px;
+  }
+
+  &__add {
+    margin-bottom: 10px;
+    color: $blue35;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      border-bottom-color: $blue35;
+    }
+  }
+
+  &__remove {
+    transition: color .4s, border .4s;
+    color: $red400;
+    max-width: max-content;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    font-size: 14px;
+
+    &:hover {
+      border-bottom-color: $red400;
+    }
+  }
+}

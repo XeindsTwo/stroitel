@@ -1,0 +1,113 @@
+.product {
+  &, &__info, &__characteristics {
+    background-color: $white;
+  }
+
+  &, &__info {
+    border-bottom: 1px solid $blue10;
+  }
+
+  padding: 20px 0;
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__top {
+    @include flex-align-center(10);
+    font-size: 14px;
+  }
+
+  &__info {
+    padding: 40px 0;
+  }
+
+  &__inner {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__image {
+    @include flex-center;
+    max-width: 500px;
+    height: 300px;
+    width: 100%;
+  }
+
+  &__img {
+    @include objectCoverBg;
+    object-fit: contain;
+  }
+
+  &__content {
+    max-width: 600px;
+  }
+
+  &__description {
+    @include flex-column(5);
+    margin-bottom: 35px;
+    line-height: 1.4;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__like {
+    @include flex-align-center(12);
+    transition: all .4s;
+
+    &:hover {
+      color: $blue35;
+
+      svg path {
+        stroke: transparent;
+        fill: $blue35;
+      }
+    }
+
+    &:focus {
+      opacity: .5;
+    }
+
+    svg path {
+      transition: all .4s;
+    }
+  }
+
+  &__price {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    display: block;
+  }
+
+  &__characteristics {
+    padding: 30px 0;
+  }
+
+  &__list {
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0 40px;
+  }
+
+  &__item {
+    @include flex-between-center-gap(20);
+    border-top: 1px solid #dddfe1;
+    padding: 35px 0;
+
+    &:nth-child(1), &:nth-child(2) {
+      padding-top: 0;
+      border-top: none;
+    }
+  }
+
+  &__meaning {
+    max-width: 300px;
+    font-size: 14px;
+  }
+}

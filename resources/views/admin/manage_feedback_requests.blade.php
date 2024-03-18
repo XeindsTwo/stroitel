@@ -33,7 +33,7 @@
         @endif
         @if($feedback->file_path)
           <p>
-            Файл: <a class="admin__item-link" href="{{asset($feedback->file_path)}}" download>скачать документ</a>
+            Файл: <a class="admin__item-link" href="{{ asset('storage/' . $feedback->file_path) }}">скачать документ</a>
           </p>
         @endif
       </li>

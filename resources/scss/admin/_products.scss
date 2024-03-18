@@ -1,0 +1,82 @@
+.admin-products {
+  &__create {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px 20px;
+    max-width: 1100px;
+    padding-bottom: 20px;
+  }
+
+  &__item {
+    @include flex-column();
+    background-color: $white;
+    padding: 10px 17px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  &__image {
+    @include flex-center;
+    height: 150px;
+    transition: opacity .4s, outline-color .4s;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    outline: 2px solid transparent;
+
+    &:hover {
+      opacity: .5;
+    }
+
+    &:focus {
+      outline-color: $blue35;
+    }
+
+    img {
+      @include objectCoverBg;
+      object-fit: contain;
+      width: auto;
+      height: 135px;
+    }
+  }
+
+  &__article {
+    color: $gray15;
+    margin-bottom: 10px;
+  }
+
+  &__name {
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    @include flex-column(2);
+    margin-bottom: 20px;
+
+    span {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  &__actions {
+    @include flex-align-center(7);
+  }
+
+  &__action {
+    transition: color .4s, border .4s;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      color: $blue35;
+    }
+
+    &:focus {
+      color: $blue35;
+      border-bottom-color: $blue35;
+    }
+  }
+}

@@ -5,6 +5,7 @@
 <section class="profile">
   <div class="container">
     <h1 class="title">Здравствуйте, {{$user->name}}</h1>
+    <a class="profile__logout" href="{{route('logout')}}">Выйти из аккаунта</a>
     @if($user->role === 'ADMIN')
       <div class="profile__admin">
         Вы имеете доступ к админ-панели

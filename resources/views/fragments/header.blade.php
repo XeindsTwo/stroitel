@@ -19,7 +19,7 @@
     <nav class="header__nav">
       <ul class="header__list">
         <li>
-          <a class="header__catalog btn" href="">
+          <a class="header__catalog btn" href="{{route('catalog')}}">
             <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                   d="M13.9172 0H0.852071C0.381485 0 0 0.383756 0 0.857143C0 1.33053 0.381485 1.71429 0.852071 1.71429H13.9172C14.3877 1.71429 14.7692 1.33053 14.7692 0.857143C14.7692 0.383756 14.3877 0 13.9172 0Z"

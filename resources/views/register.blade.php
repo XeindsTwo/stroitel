@@ -30,7 +30,7 @@
             <span class="error" id="loginError">Логин не должен иметь запрещенные символы</span>
             <span class="error" id="loginCheckError">Логин уже используется</span>
             <span class="error" id="loginLengthError">Минимальное количество символов - 5</span>
-            <input class="input" id="login" type="text" name="login" maxlength="60" placeholder="Введите ваш логин">
+            <input class="input" id="login" type="text" name="login" maxlength="60" autocomplete="none" placeholder="Введите ваш логин">
           </li>
           <li class="auth__item">
             <label class="label" for="name">Имя</label>
@@ -52,7 +52,7 @@
               Пароль может содержать только латинские буквы, цифры и нижнее подчеркивание
             </span>
             <span class="error" id="passwordLengthError">Минимальное количество символов - 8</span>
-            <input class="input" id="password" type="password" placeholder="Введите пароль" maxlength="60" name="password">
+            <input class="input" id="password" type="password" autocomplete="new-password" placeholder="Введите пароль" maxlength="60" name="password">
           </li>
         </ul>
         <span class="auth__link">Есть аккаунт? <a href="{{route('login')}}">Тогда войдите в аккаунт</a></span>

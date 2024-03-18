@@ -22,4 +22,21 @@
       opacity: .5;
     }
   }
+
+  &__logout {
+    color: $red500;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      color: $red600;
+    }
+
+    &:focus {
+      color: $red600;
+      border-bottom-color: $red600;
+    }
+  }
 }

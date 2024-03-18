@@ -11,5 +11,4 @@
 @include('home.original')
 @include('fragments/footer')
 @vite(['resources/js/slider-orders.js'])
-@livewireScripts
 </body>

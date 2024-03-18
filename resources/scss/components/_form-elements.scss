@@ -25,7 +25,12 @@
 
   &--textarea {
     resize: none;
-    min-height: 110px;
+    min-height: 120px;
+  }
+
+  &--textarea-high {
+    resize: none;
+    min-height: 170px;
   }
 
   &--nonheight {
