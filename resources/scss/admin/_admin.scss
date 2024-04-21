@@ -1,5 +1,7 @@
 @import "./create-product";
 @import "./products";
+@import "./categories/index";
+@import "./categories/create";
 
 .admin {
   &__list {

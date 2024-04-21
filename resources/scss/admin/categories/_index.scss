@@ -1,0 +1,13 @@
+.admin-categories {
+  &__create {
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    padding-bottom: 20px;
+  }
+}

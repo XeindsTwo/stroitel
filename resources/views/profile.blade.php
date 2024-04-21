@@ -12,6 +12,9 @@
         <a class="profile__link" href="{{ route('admin.feedback-request') }}">Перейти в админ-панель</a>
       </div>
     @endif
+    <p class="profile__orders-empty">
+      У вас ещё нет заказов
+    </p>
   </div>
 </section>
 @vite(['resources/js/app.js'])

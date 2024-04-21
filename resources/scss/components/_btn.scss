@@ -18,6 +18,8 @@
   }
 
   &:focus {
-    opacity: .5;
+    background-color: transparent;
+    border-color: $blue90;
+    color: $blue90;
   }
 }

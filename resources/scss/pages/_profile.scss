@@ -39,4 +39,10 @@
       border-bottom-color: $red600;
     }
   }
+
+  &__orders-empty {
+    margin-top: 60px;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }

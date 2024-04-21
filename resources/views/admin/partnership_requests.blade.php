@@ -25,7 +25,7 @@
           </button>
         </div>
         <p>Имя: {{ $request->organization_name }}</p>
-        <p>Email: <a class="admin__item-link" href="mailto:{{ $request->email }}">{{ $request->email }}</a></p>
+        <p>Email: <a class="admin__item-link" href="mailto:{{ $request->email }}">nikitaKimel@gmail.com</a></p>
         <p>Телефон: <a class="admin__item-link" href="tel:{{ $request->phone }}">{{ $request->phone }}</a></p>
         @if($request->comment)
           <pre class="admin__pre">{{ $request->comment }}</pre>

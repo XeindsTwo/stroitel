@@ -14,7 +14,7 @@
   &__item {
     @include flex-column();
     background-color: $white;
-    padding: 10px 17px;
+    padding: 10px 17px 13px;
     border-radius: 4px;
     font-size: 14px;
   }
