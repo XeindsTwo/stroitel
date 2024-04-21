@@ -66,6 +66,12 @@ class CategoryController extends Controller
     return response()->json(['message' => 'Категория успешно создана']);
   }
 
+  public function edit($id)
+  {
+    $category = Category::with('subcategories')->findOrFail($id);
+    return view('admin.categories.edit', compact('category'));
+  }
+
   public function destroy($id)
   {
     $category = Category::findOrFail($id);

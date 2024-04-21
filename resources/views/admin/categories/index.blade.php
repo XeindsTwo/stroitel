@@ -18,14 +18,20 @@
   @else
     <ul class="admin-categories__list">
       @foreach($categories as $category)
-        <li class="admin-products__item">
-          <p class="admin-products__name">{{$category->name}}</p>
-          <div class="admin-products__actions">
-            <button class="admin-products__action delete-category" type="button" data-category-id="{{$category->id}}">
+        <li class="admin-categories__item">
+          <p class="admin-categories__name">{{$category->name}}</p>
+          <img class="admin-categories__img" width="260" height="150"
+               src="{{asset('storage/category_images/' . $category->image)}}" alt="{{$category->name}}">
+          <div class="admin-categories__actions">
+            <button class="admin-categories__action delete-category" type="button" data-category-id="{{$category->id}}">
               Удалить
             </button>
             |
-            <button class="admin-products__action" type="button">Редактировать</button>
+            <a class="admin-categories__action"
+               href="{{route('admin.categories.edit', $category->id)}}"
+            >
+              Редактировать
+            </a>
           </div>
         </li>
       @endforeach
@@ -52,7 +58,7 @@
             .then(response => response.json())
             .then(data => {
               const deletedCategoryElement = document.querySelector(`.delete-category[data-category-id="${categoryId}"]`);
-              deletedCategoryElement.closest('.admin-products__item').remove();
+              deletedCategoryElement.closest('.admin-categories__item').remove();
               alert(data.message);
             })
             .catch(error => {
