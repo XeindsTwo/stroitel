@@ -41,6 +41,23 @@
 </body>
 
 <script>
+  function validateSubcategories() {
+    const subcategoryImageInputs = document.querySelectorAll('.create-category__file');
+    for (let i = 0; i < subcategoryImageInputs.length; i++) {
+      const imageInput = subcategoryImageInputs[i];
+      const subcategoryIndex = imageInput.id.replace('subcategoryImage', '');
+      const errorMessage = document.getElementById(`subcategoryImageError${subcategoryIndex}`);
+      if (!imageInput.files || imageInput.files.length === 0) {
+        errorMessage.classList.add('error--active');
+        setTimeout(function () {
+          errorMessage.classList.remove('error--active');
+        }, 2300);
+        return false;
+      }
+    }
+    return true;
+  }
+
   document.getElementById('categoryForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const formData = new FormData(this);
@@ -82,21 +99,7 @@
       return;
     }
 
-    const subcategoryInputs = document.querySelectorAll('.create-category__list input[type="file"]');
-    let subcategoriesValid = true;
-    subcategoryInputs.forEach(function (input) {
-      const file = input.files[0];
-      if (!file) {
-        const subcategoryImageError = document.getElementById(`subcategoryImageError${subcategoryIndex}`);
-        subcategoryImageError.classList.add('error--active');
-        setTimeout(function () {
-          subcategoryImageError.classList.remove('error--active');
-        }, 2300);
-        subcategoriesValid = false;
-      }
-    });
-
-    if (!subcategoriesValid) {
+    if (!validateSubcategories()) {
       return;
     }
 

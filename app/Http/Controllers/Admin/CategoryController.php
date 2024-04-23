@@ -85,4 +85,60 @@ class CategoryController extends Controller
 
     return response()->json(['message' => 'Категория успешно удалена']);
   }
+
+  public function update(Request $request, $id)
+  {
+    $validator = Validator::make($request->all(), [
+      'name' => 'required|max:255|unique:categories,name,' . $id,
+      'image' => 'image|mimes:webp,png,jpg,jpeg|max:2048',
+      'subcategories' => 'array',
+      'subcategories.*.name' => 'required|max:255',
+      'subcategories.*.image' => 'required|image|mimes:webp,png,jpg,jpeg|max:2048',
+    ]);
+
+    if ($validator->fails()) {
+      return response()->json(['success' => false, 'message' => 'Ошибки валидации', 'errors' => $validator->errors()], 422);
+    }
+
+    $category = Category::findOrFail($id);
+    $category->name = $request->name;
+
+    // Удаление старых изображений подкатегорий
+    foreach ($category->subcategories as $subcategory) {
+      if ($subcategory->image) {
+        Storage::delete('public/subcategory_images/' . $subcategory->image);
+      }
+      $subcategory->delete();
+    }
+
+    if ($request->hasFile('image')) {
+      if ($category->image) {
+        Storage::delete('public/category_images/' . $category->image);
+      }
+      $imagePath = $request->file('image')->store('public/category_images');
+      $imageName = basename($imagePath);
+      $category->image = $imageName;
+    }
+
+    if (!$request->has('subcategories') || empty($request->subcategories)) {
+      $category->subcategories()->delete();
+    } else {
+      foreach ($request->subcategories as $subcategoryData) {
+        $subcategoryImagePath = $subcategoryData['image']->store('public/subcategory_images');
+        $subcategoryImageName = basename($subcategoryImagePath);
+
+        $subcategory = new Subcategory();
+        $subcategory->name = $subcategoryData['name'];
+        $subcategory->image = $subcategoryImageName;
+        $subcategory->category_id = $category->id;
+        $subcategory->save();
+      }
+    }
+
+    if (!$category->save()) {
+      return response()->json(['success' => false, 'message' => 'Ошибка при обновлении категории'], 500);
+    }
+
+    return response()->json(['message' => 'Категория успешно обновлена']);
+  }
 }
