@@ -17,10 +17,16 @@ customFileInputs.forEach(function (input) {
   input.addEventListener('change', function () {
     const file = this.files[0];
 
-    const allowedFormats = ['image/webp', 'image/png', 'image/jpeg'];
+    if (!file) {
+      resetPreview();
+      return;
+    }
+
+    const allowedFormats = ['image/webp', 'image/png', 'image/jpg', 'image/jpeg'];
     if (!allowedFormats.includes(file.type)) {
       formatError.style.display = 'block';
       hideError(formatError);
+      resetPreview();
       return;
     } else {
       formatError.style.display = 'none';
@@ -29,6 +35,7 @@ customFileInputs.forEach(function (input) {
     if (file.size > 2 * 1024 * 1024) {
       maxSizeError.style.display = 'block';
       hideError(maxSizeError);
+      resetPreview();
       return;
     } else {
       maxSizeError.style.display = 'none';
@@ -46,13 +53,23 @@ customFileInputs.forEach(function (input) {
 
       reader.readAsDataURL(file);
     } else {
-      previewText.style.display = 'block';
-      previewImage.style.display = 'none';
-      previewImage.setAttribute('src', '#');
+      resetPreview();
+    }
+  });
+
+  input.addEventListener('input', function() {
+    if (!this.value) {
+      resetPreview();
     }
   });
 
   previewContainer.addEventListener('click', function () {
     input.click();
   });
+
+  function resetPreview() {
+    previewText.style.display = 'block';
+    previewImage.style.display = 'none';
+    previewImage.setAttribute('src', '#');
+  }
 });

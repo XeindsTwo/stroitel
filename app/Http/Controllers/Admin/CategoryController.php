@@ -75,11 +75,16 @@ class CategoryController extends Controller
   public function destroy($id)
   {
     $category = Category::findOrFail($id);
+    $category->products()->each(function ($product) {
+      Storage::delete('public/products/' . $product->image_path);
+      $product->delete();
+    });
+
     foreach ($category->subcategories as $subcategory) {
       Storage::delete('public/subcategory_images/' . $subcategory->image);
+      $subcategory->delete();
     }
 
-    $category->subcategories()->delete();
     Storage::delete('public/category_images/' . $category->image);
     $category->delete();
 
@@ -103,7 +108,6 @@ class CategoryController extends Controller
     $category = Category::findOrFail($id);
     $category->name = $request->name;
 
-    // Удаление старых изображений подкатегорий
     foreach ($category->subcategories as $subcategory) {
       if ($subcategory->image) {
         Storage::delete('public/subcategory_images/' . $subcategory->image);
