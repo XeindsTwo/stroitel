@@ -91,7 +91,7 @@
     }
 
     &:focus {
-      color: $blue30;
+      color: $blue35;
     }
 
     &::before {
@@ -108,6 +108,16 @@
   &__catalog {
     padding: 14px 18px;
     gap: 15px;
+
+    &:focus {
+      svg path {
+        fill: $blue90;
+      }
+    }
+
+    svg path {
+      transition: fill .4s;
+    }
   }
 
   &__logo {

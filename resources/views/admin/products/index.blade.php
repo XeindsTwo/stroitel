@@ -32,7 +32,12 @@
             Удалить
           </button>
           |
-          <button class="admin-products__action" type="button">Редактировать</button>
+          <a
+              class="admin-products__action"
+              href="{{route('admin.products.edit', ['id' => $product->id])}}"
+          >
+            Редактировать
+          </a>
         </div>
       </li>
     @endforeach

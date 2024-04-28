@@ -21,6 +21,10 @@
     <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <ul class="create-product__list">
+        <li class="create-product__checkbox">
+          <label for="availability">Товар в наличии:</label>
+          <input class="checkbox" type="checkbox" id="availability" name="availability" value="1" checked>
+        </li>
         <li class="create-product__item">
           <div>
             <label class="label" for="name">Категория:</label>
@@ -45,23 +49,30 @@
             </select>
           </div>
         </li>
-        <li class="create-product__item">
+        <li>
           <div>
             <label class="label" for="name">Название:</label>
             <input class="input" type="text" name="name" id="name" required placeholder="Введите название">
           </div>
+        </li>
+        <li class="create-product__item">
           <div>
             <label class="label" for="price">Цена (за шт):</label>
             <input class="input" type="number" name="price" id="price" min="50" max="300000" required
                    placeholder="Введите цену">
           </div>
+          <div>
+            <label class="label" for="new_price">Новая цена (необязательно):</label>
+            <input class="input" type="number" name="new_price" id="new_price" min="50" max="300000"
+                   placeholder="Введите цену (скидка)">
+          </div>
         </li>
-        <div>
+        <li>
           <label class="label" for="description">Описание:</label>
           <textarea class="input input--textarea-high" name="description" id="description" placeholder="Напишите что-то"
                     maxlength="2300" required></textarea>
-        </div>
-        <div>
+        </li>
+        <li>
           <label class="label" for="image">Изображение:</label>
           <span class="error" id="photoError">Товар должен содержать изображение</span>
           <span class="error" id="max-size-error">Макс. вес изображения - 2мб</span>
@@ -73,7 +84,7 @@
           </div>
           <input type="file" name="image" id="image" class="input-file"
                  data-preview="image-preview" style="display: none;" accept=".png, .jpg, .jpeg, .webp">
-        </div>
+        </li>
       </ul>
       <button class="create-product__add" id="add-property" type="button">Добавить свойство</button>
       <div class="create-product__properties" id="properties-container">
