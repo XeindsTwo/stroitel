@@ -38,6 +38,9 @@
           <a class="header__link" href="{{route('about')}}">О компании</a>
         </li>
         <li>
+          <a class="header__link" href="{{route('services.uslugi')}}">Услуги</a>
+        </li>
+        <li>
           <a class="header__link" href="">Акции</a>
         </li>
         <li>

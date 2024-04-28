@@ -164,7 +164,7 @@
         </ul>
         <p class="partneram__confirm">
           Отправляя данные через эту форму, Вы автоматически соглашаетесь на
-          <a href="">политику конфиденциальности</a>
+          <a href="{{route('privacy')}}">политику конфиденциальности</a>
         </p>
         <button class="partneram__btn btn" type="submit">Отправить</button>
       </form>

@@ -35,7 +35,7 @@
       </div>
       <div class="footer__bottom-inner">
         <p class="footer__author">
-          © 2024 Diseased. All rights reserved.
+          © 2024 Diseased. Все права защищены.
         </p>
         <a class="footer__privacy" href="{{route('privacy')}}">Политика конфиденциальности</a>
       </div>

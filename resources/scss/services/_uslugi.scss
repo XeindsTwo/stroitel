@@ -1,0 +1,80 @@
+.uslugi {
+  padding-bottom: 40px;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    max-width: 1200px;
+  }
+
+  &__item {
+    @include flex-column(0);
+    background-color: $white;
+    border-radius: 5px;
+    padding: 20px 23px;
+  }
+
+  &__link {
+    font-weight: 500;
+    align-self: flex-start;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      color: $blue35;
+    }
+
+    &:focus {
+      border-color: $blue35;
+    }
+  }
+
+  &__img {
+    @include objectCoverBg;
+    margin: auto auto 15px;
+  }
+
+  &__text {
+    font-size: 15px;
+    margin-top: auto;
+    color: $gray15;
+    margin-bottom: 20px;
+  }
+
+  &__more {
+    @include flex-align-center(8);
+    margin-top: auto;
+    font-weight: 600;
+    font-size: 14px;
+    color: $blue35;
+    align-self: flex-start;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      color: $black500;
+
+      .svg_icon {
+        fill: $black500;
+      }
+    }
+
+    &:focus {
+      border-color: $blue35;
+    }
+
+    .svg_icon {
+      width: 14px;
+      height: 14px;
+      fill: $blue35;
+    }
+  }
+}

@@ -24,9 +24,15 @@
           </a>
         </li>
         <li>
+          <a class="header__admin-link {{Route::currentRouteName() === 'admin.services.index' ? 'active' : '' }}"
+             href="{{route('admin.services.index')}}">
+            Управление заявками на услуги
+          </a>
+        </li>
+        <li>
           <a class="header__admin-link {{Route::currentRouteName() === 'admin.partnership-requests' ? 'active' : '' }}"
              href="{{route('admin.partnership-requests')}}">
-            Управление заявлениями (партнёрство)
+            Управление заявлениями партнёрства
           </a>
         </li>
         <li>

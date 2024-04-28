@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Review extends Model
+class Service extends Model
 {
   protected $fillable = [
     'name',
     'email',
-    'comment',
-    'rating',
+    'phone',
+    'question',
+    'service_type'
   ];
 }
