@@ -6,12 +6,9 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckDatabaseConnection;
 use App\Http\Middleware\Cors;
-use App\Http\Middleware\EncryptCookies;
-use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Middleware\TrimStrings;
 use App\Http\Middleware\TrustProxies;
-use App\Http\Middleware\ValidateSignature;
 use App\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
@@ -41,7 +38,6 @@ class Kernel extends HttpKernel
   protected $middleware = [
     TrustProxies::class,
     HandleCors::class,
-    PreventRequestsDuringMaintenance::class,
     ValidatePostSize::class,
     TrimStrings::class,
     ConvertEmptyStringsToNull::class
@@ -49,7 +45,6 @@ class Kernel extends HttpKernel
 
   protected $middlewareGroups = [
     'web' => [
-      EncryptCookies::class,
       AddQueuedCookiesToResponse::class,
       StartSession::class,
       ShareErrorsFromSession::class,
@@ -72,7 +67,6 @@ class Kernel extends HttpKernel
     'guest' => RedirectIfAuthenticated::class,
     'password.confirm' => RequirePassword::class,
     'precognitive' => HandlePrecognitiveRequests::class,
-    'signed' => ValidateSignature::class,
     'verified' => EnsureEmailIsVerified::class,
   ];
 }

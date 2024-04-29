@@ -14,10 +14,10 @@ class FeedbackRequestController extends Controller
   public function store(Request $request)
   {
     $validator = Validator::make($request->all(), [
-      'name' => 'required|string|max:70|regex:/^[А-Яа-яЁё\s\-]+$/u',
-      'email' => 'required|email|max:120',
-      'phone' => 'required|string|max:20',
-      'comment' => 'nullable|string|max:2000',
+      'name_feedback' => 'required|string|max:70|regex:/^[А-Яа-яЁё\s\-]+$/u',
+      'email_feedback' => 'required|email|max:120',
+      'phone_feedback' => 'required|string|max:20',
+      'comment_feedback' => 'nullable|string|max:2000',
       'file' => 'nullable|file|max:2048|mimes:pdf,doc,docx,xls,xlsx,jpg,jpeg,png',
     ]);
 
@@ -26,7 +26,7 @@ class FeedbackRequestController extends Controller
     }
 
     $maxRequests = 3;
-    $decayInSeconds = 10; // 30 минут = 1800 секунд
+    $decayInSeconds = 1800; // 30 минут = 1800 секунд
 
     $key = 'feedback_requests_' . $request->ip();
 
@@ -43,10 +43,10 @@ class FeedbackRequestController extends Controller
         }
 
         $feedbackRequest = FeedbackRequest::create([
-          'name' => $request->name,
-          'email' => $request->email,
-          'phone' => $request->phone,
-          'comment' => $request->comment,
+          'name_feedback' => $request->name_feedback,
+          'email_feedback' => $request->email_feedback,
+          'phone_feedback' => $request->phone_feedback,
+          'comment_feedback' => $request->comment_feedback,
           'file_path' => $filePath,
         ]);
 

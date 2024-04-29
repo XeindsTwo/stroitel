@@ -17,7 +17,7 @@ class UpdateUserRequest extends FormRequest
       'login' => 'required|string|min:5|max:60|unique:users|regex:/^[a-zA-Z0-9_]+$/' . $this->user->id,
       'name' => 'required|string|min:2|max:50|regex:/^[A-Za-zА-Яа-яЁё\s\-]+$/u',
       'email' => 'required|email|unique:users,email' . $this->user->id,
-      'password' => 'required|string|min:8|max:60|regex:/^[a-zA-Z0-9_]+$/',
+      'password' => 'required|string|min:8|max:60|regex:/^[^\p{Cyrillic}]+$/u',
       'role' => 'required|in:ADMIN,USER',
     ];
   }

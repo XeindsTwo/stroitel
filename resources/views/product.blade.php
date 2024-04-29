@@ -33,7 +33,7 @@
   <div class="container">
     <div class="product__inner">
       <div class="product__image">
-        <img class="product__img" width="290" height="290" src="{{asset('storage/products/' . $product->image_path)}}"
+        <img class="product__img" width="360" height="360" src="{{asset('storage/products/' . $product->image_path)}}"
              alt="">
       </div>
       <div class="product__content">

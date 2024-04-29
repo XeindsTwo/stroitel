@@ -8,35 +8,26 @@
         <a class="breadcrumbs__link" href="{{route('admin.feedback-request')}}">Главная админ-панели</a>
       </div>
       <div class="breadcrumbs__item">
-        <span>Управление не одобренными отзывами магазина</span>
+        <span>Управление одобренными отзывами магазина</span>
       </div>
     </div>
   </div>
-  <a class="admin__link header__admin-link" href="{{route('admin.reviews.approved')}}">
-    Перейти на страницу одобренных отзывов
-  </a>
+  <a class="admin__link header__admin-link" href="{{route('admin.reviews')}}">Перейти на страницу не одобренных отзывов</a>
   <p class="admin__info">
-    Данная страница - лишь первый этап по отзывам. Здесь можно либо одобрить отзыв, либо отклонить его
+    Данная страница - второй этап отзывов. Данные одобренные отзывы уже отображаются на странице о компании
     <br>
     <br>
-    Если отклонить отзыв, то отзыв безвозвратно будет удалён из БД
-    <br>
-    <br>
-    Если отзыв одобрить, то он будет отображаться на <a href="{{route('reviews')}}">странице компании</a>.
-    Но его можно будет удалить в будущем
+    Отзыв можно удалить, но он будет удалён окончательно из БД
   </p>
-  @if($unapprovedReviews->isEmpty())
+  @if($approvedReviews->isEmpty())
     <p class="admin__empty">Отзывов о магазине ещё не существует :(</p>
   @endif
   <ul class="admin__list">
-    @foreach($unapprovedReviews as $review)
+    @foreach($approvedReviews as $review)
       <li class="admin__item">
         <div class="admin__actions">
           <button class="admin__action admin__delete" type="button" data-id="{{$review->id}}">
-            Отклонить отзыв
-          </button>
-          <button class="admin__action admin__confirm" type="button" data-id="{{$review->id}}">
-            Одобрить отзыв
+            Удалить отзыв
           </button>
         </div>
         <p class="admin__rating">
@@ -51,5 +42,4 @@
 </div>
 </body>
 @vite(['resources/js/reviews/generate-stars.js'])
-@vite(['resources/js/reviews/admin/reject-review.js'])
-@vite(['resources/js/reviews/admin/approve-review.js'])
+@vite(['resources/js/reviews/admin/delete-review.js'])

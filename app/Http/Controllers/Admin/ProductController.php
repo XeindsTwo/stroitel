@@ -34,10 +34,47 @@ class ProductController extends Controller
     }
   }
 
+  /**
+   * Отображает страницу с подкатегориями указанной категории
+   * @param int $category_id Идентификатор категории
+   */
+  public function indexSubcategories($category_id)
+  {
+    $category = Category::findOrFail($category_id);
+    $subcategories = $category->subcategories;
+    return view('admin.products.index_categories', compact('category', 'subcategories'));
+  }
+
+  // Отображает страницу управления товарами, на которой отображаются все категории
   public function indexPage()
   {
-    $products = Product::all();
-    return view('admin.products.index', compact('products'));
+    $categories = Category::all();
+    return view('admin.products.index', compact('categories'));
+  }
+
+  /**
+   * Отображает страницу с товарами для указанной категории
+   * @param int $category_id Идентификатор категории
+   */
+  public function indexProducts($category_id)
+  {
+    $category = Category::findOrFail($category_id);
+    $products = $category->products;
+    return view('admin.products.index_products', compact('products', 'category'));
+  }
+
+  /**
+   * Отображает страницу с товарами для указанной подкатегории.
+   * @param int $subcategory_id Идентификатор подкатегории.
+   */
+  public function indexSubcategoryProducts($category_id, $subcategory_id)
+  {
+    $category = Category::findOrFail($category_id);
+    $subcategory = $category->subcategories()->findOrFail($subcategory_id);
+    $categoryName = $subcategory->category->name;
+    $products = $subcategory->products;
+
+    return view('admin.products.index_subcategory_products', compact('products', 'subcategory', 'categoryName'));
   }
 
   public function createPage()

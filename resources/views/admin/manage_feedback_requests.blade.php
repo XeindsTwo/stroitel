@@ -25,15 +25,15 @@
           </button>
         </div>
         <p>Время создания - {{ \Carbon\Carbon::parse($feedback->created_at)->format('d M Y') }}</p>
-        <p>Имя - {{ $feedback->name }}</p>
-        <p>Email - <a class="admin__item-link" href="mailto:{{ $feedback->email }}">{{ $feedback->email }}</a></p>
-        <p>Телефон - <a class="admin__item-link" href="tel:{{ $feedback->phone }}">{{ $feedback->phone }}</a></p>
-        @if($feedback->comment)
-          <p>Комментарий: {{ $feedback->comment }}</p>
+        <p>Имя - {{ $feedback->name_feedback }}</p>
+        <p>Email - <a class="admin__item-link" href="mailto:{{ $feedback->email_feedback }}">{{ $feedback->email_feedback }}</a></p>
+        <p>Телефон - <a class="admin__item-link" href="tel:{{ $feedback->phone_feedback }}">{{ $feedback->phone_feedback }}</a></p>
+        @if($feedback->comment_feedback)
+          <p>Комментарий: {{ $feedback->comment_feedback }}</p>
         @endif
         @if($feedback->file_path)
           <p>
-            Файл: <a class="admin__item-link" href="{{ asset('storage/' . $feedback->file_path) }}">скачать документ</a>
+            Файл: <a class="admin__item-link" href="{{ asset('storage/' . $feedback->file_path) }}" target="_blank">скачать документ</a>
           </p>
         @endif
       </li>

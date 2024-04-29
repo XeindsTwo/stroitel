@@ -158,7 +158,7 @@
           <li class="partneram__column">
             <label class="partneram__label">
               <textarea class="input input--textarea input--nonheight" maxlength="2000" name="comment" id="comment"
-                        placeholder="Ваш комментарий"></textarea>
+                        placeholder="Ваш комментарий (необязательно)"></textarea>
             </label>
           </li>
         </ul>

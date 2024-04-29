@@ -30,7 +30,7 @@
                   placeholder="Ваш комментарий (необязательно)"></textarea>
       </li>
       <li>
-        <label class="label" for="file">Файл ТЗ или реквизиты</label>
+        <label class="label" for="file">Файл ТЗ или реквизиты (необязательно)</label>
         <span class="error" id="max-size-error">
           Файл не может весить более 2мб
         </span>

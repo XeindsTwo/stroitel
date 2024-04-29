@@ -118,19 +118,19 @@ $(document).ready(function () {
   }
 
   function validatePassword() {
-    const passwordValue = $("#password").val();
+    const passwordValue = $("#password").val().trim();
     const passwordError = $("#passwordError");
     const passwordLengthError = $("#passwordLengthError");
 
-    if (passwordValue.trim() === "") {
+    if (passwordValue === "") {
       passwordError.removeClass("error--active");
       passwordLengthError.removeClass("error--active");
       return false;
     }
 
+    const regex = /^[a-zA-Z0-9!@#$%^&*()_+=[\]{};':",.<>/?`~|-]+$/;
     let valid = true;
 
-    const regex = /^[a-zA-Z0-9_]+$/;
     if (!regex.test(passwordValue)) {
       passwordError.addClass("error--active");
       valid = false;

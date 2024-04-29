@@ -190,7 +190,7 @@
         }
       } else {
         console.log('Продукт успешно обновлен');
-        //window.location.href = "{{ route('admin.products.index') }}";
+        window.location.href = "{{ route('admin.products.index') }}";
       }
     } catch (error) {
       console.error('Произошла ошибка:', error);

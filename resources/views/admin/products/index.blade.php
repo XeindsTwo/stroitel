@@ -12,8 +12,37 @@
       </div>
     </div>
   </div>
-  <a class="admin-products__create btn" href="{{route('admin.products.create')}}">Создать новый товар</a>
-  <ul class="admin-products__list">
+  @if (!$categories->isEmpty())
+    <a class="admin-products__create btn" href="{{route('admin.products.create')}}">Создать новый товар</a>
+  @endif
+  @if ($categories->isEmpty())
+    <p>В базе данных нет категорий и товаров</p>
+  @else
+    <ul class="admin-products__list">
+      @foreach ($categories as $category)
+        <li>
+          @if ($category->subcategories->isNotEmpty())
+            <a class="category" href="{{ route('admin.products.index_categories', ['category_id' => $category->id]) }}">
+              @else
+                <a class="category" href="{{ route('admin.products.index_products', ['category_id' => $category->id]) }}">
+                @endif
+                  <p class="category__title">
+                    {{$category->name}}
+                  </p>
+                  <img
+                      class="category__img"
+                      src="{{asset('storage/category_images/' . $category->image)}}"
+                      alt="{{$category->name}}"
+                      width="260"
+                      height="150"
+                  >
+                </a>
+            </a>
+        </li>
+      @endforeach
+    </ul>
+  @endif
+  {{--<ul class="admin-products__list">
     @foreach($products as $product)
       <li class="admin-products__item">
         <a class="admin-products__image" href="{{ route('show_product', ['id' => $product->id]) }}">
@@ -41,9 +70,10 @@
         </div>
       </li>
     @endforeach
-  </ul>
+  </ul>--}}
 </div>
 </body>
+{{--
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const deleteButtons = document.querySelectorAll('.delete-product');
@@ -80,4 +110,4 @@
       });
     });
   });
-</script>
+</script>--}}

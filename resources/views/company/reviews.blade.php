@@ -84,7 +84,7 @@
               <textarea class="input input--textarea input--nonheight input--white" id="comment" name="comment"
                         placeholder="Сюда вы можете написать любой комментарий, задать вопрос или оставить отзыв на товар. После модерации, наши администраторы опубликуют и ответят вам"
                         required maxlength="2000"></textarea>
-              <button class="company-reviews__btn btn" type="submit">Отправить</button>
+              <button class="company-reviews__btn btn" type="submit">Отправить отзыв</button>
             </div>
           </div>
         </form>

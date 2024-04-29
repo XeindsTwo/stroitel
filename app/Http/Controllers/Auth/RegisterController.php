@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-  public function register(Request $request): Application|Redirector|RedirectResponse|\Illuminate\Contracts\Foundation\Application
+  public function register(Request $request)
   {
     DB::beginTransaction();
     try {
@@ -25,7 +25,7 @@ class RegisterController extends Controller
         'login' => 'required|string|min:5|max:60|unique:users|regex:/^[a-zA-Z0-9_]+$/',
         'name' => 'required|string|min:2|max:50|regex:/^[A-Za-zА-Яа-яЁё\s\-]+$/u',
         'email' => 'required|email|max:120|unique:users,email',
-        'password' => 'required|string|min:8|max:60|regex:/^[a-zA-Z0-9_]+$/',
+        'password' => 'required|string|min:8|max:60|regex:/^[^\p{Cyrillic}]+$/u',
       ]);
 
       User::create([
@@ -37,10 +37,10 @@ class RegisterController extends Controller
       ]);
 
       DB::commit();
-      return redirect('login')->with('success', 'Регистрация прошла успешно!');
-    } catch (Exception) {
+      return redirect()->route('login')->with('success', 'Регистрация прошла успешно!');
+    } catch (Exception $e) {
       DB::rollBack();
-      return redirect('/503_error');
+      return response()->json(['message' => 'Ошибка при регистрации', 'error' => $e->getMessage()], 500);
     }
   }
 

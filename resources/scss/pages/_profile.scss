@@ -2,25 +2,31 @@
   padding: 40px 0;
 
   &__admin {
+    @include flex-column(0);
     background-color: $blue35;
     max-width: 340px;
     color: $white;
     padding: 20px;
     border-radius: 7px;
+    border: 1px solid transparent;
+    transition: background-color .4s, border .4s, color .4s;
+
+    &:hover {
+      background-color: transparent;
+      border-color: $blue35;
+      color: $blue90;
+    }
+
+    &:focus {
+      background-color: $blue90;
+      border-color: transparent;
+      color: $white;
+    }
   }
 
   &__link {
     display: inline-block;
     margin-top: 8px;
-    transition: color .4s, opacity .4s;
-
-    &:hover {
-      color: rgba($white, .7);
-    }
-
-    &:focus {
-      opacity: .5;
-    }
   }
 
   &__logout {

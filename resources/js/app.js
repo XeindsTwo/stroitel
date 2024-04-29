@@ -9,21 +9,21 @@ const openModalAuth = document.getElementById('btn-auth')
 const closeModalAuth = document.getElementById('close-auth')
 
 openModalContact.addEventListener('click', () => {
-    openModal(modalContact)
+  openModal(modalContact)
 })
 
 closeModalContact.addEventListener('click', () => {
-    closeModal(modalContact)
+  closeModal(modalContact)
 })
 
 handleModalClose(modalContact)
 
 openModalAuth.addEventListener('click', () => {
-    openModal(modalAuth)
+  openModal(modalAuth)
 })
 
 closeModalAuth.addEventListener('click', () => {
-    closeModal(modalAuth)
+  closeModal(modalAuth)
 })
 
 handleModalClose(modalAuth)

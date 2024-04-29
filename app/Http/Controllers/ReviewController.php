@@ -30,7 +30,7 @@ class ReviewController extends Controller
     }
 
     $maxRequests = 3;
-    $decayInSeconds = 30; //1800 секунд = 30 минутам
+    $decayInSeconds = 1800; //1800 секунд = 30 минутам
 
     $key = 'review_requests_' . $request->ip();
 

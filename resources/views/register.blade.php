@@ -30,29 +30,29 @@
             <span class="error" id="loginError">Логин не должен иметь запрещенные символы</span>
             <span class="error" id="loginCheckError">Логин уже используется</span>
             <span class="error" id="loginLengthError">Минимальное количество символов - 5</span>
-            <input class="input" id="login" type="text" name="login" maxlength="60" autocomplete="none" placeholder="Введите ваш логин">
+            <input class="input" id="login" type="text" name="login" maxlength="60" autocomplete="none"
+                   placeholder="Введите ваш логин" required>
           </li>
           <li class="auth__item">
             <label class="label" for="name">Имя</label>
             <span class="error" id="nameMinError">Мин. количество символов - 2</span>
-            <span class="error" id="nameError">Имя не должно содержать запрещенные символы</span>
-            <input class="input" id="name" type="text" name="name" maxlength="50" placeholder="Введите ваше имя"
-                   value="{{ old('name') }}">
+            <span class="error" id="nameError">Имя может содержать только кириллицу или латиницу</span>
+            <input class="input" id="name" type="text" name="name" maxlength="50" placeholder="Введите ваше имя" required>
           </li>
           <li class="auth__item">
             <label class="label" for="email">Email</label>
             <span class="error" id="emailError">Почта уже используется</span>
             <span class="error" id="emailErrorParameters">Почта не соответствует параметрам</span>
-            <input class="input" id="email" type="email" name="email" maxlength="80" placeholder="Введите ваш email"
-                   value="{{ old('email') }}">
+            <input class="input" id="email" type="email" name="email" maxlength="80" placeholder="Введите ваш email" required>
           </li>
           <li class="auth__item">
             <label class="label" for="password">Пароль</label>
             <span class="error" id="passwordError">
-              Пароль может содержать только латинские буквы, цифры и нижнее подчеркивание
+              Пароль может содержать только латинские буквы, цифры и спец символы
             </span>
             <span class="error" id="passwordLengthError">Минимальное количество символов - 8</span>
-            <input class="input" id="password" type="password" autocomplete="new-password" placeholder="Введите пароль" maxlength="60" name="password">
+            <input class="input" id="password" type="password" autocomplete="new-password" placeholder="Введите пароль"
+                   maxlength="60" name="password" required>
           </li>
         </ul>
         <span class="auth__link">Есть аккаунт? <a href="{{route('login')}}">Тогда войдите в аккаунт</a></span>
@@ -62,8 +62,8 @@
   </div>
 </section>
 @include('fragments/footer')
+@vite(['resources/js/register.js'])
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-@vite(['resources/js/register.js'])
 </body>

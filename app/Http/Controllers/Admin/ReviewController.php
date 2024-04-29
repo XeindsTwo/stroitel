@@ -10,13 +10,13 @@ class ReviewController extends Controller
   public function unapproved()
   {
     $unapprovedReviews = Review::where('status', 0)->get();
-    return view('admin.manage_reviews', compact('unapprovedReviews'));
+    return view('admin.reviews.manage_reviews', compact('unapprovedReviews'));
   }
 
   public function approved()
   {
     $approvedReviews = Review::where('status', 1)->get();
-    return view('admin.manage_reviews-approved', compact('approvedReviews'));
+    return view('admin.reviews.manage_reviews-approved', compact('approvedReviews'));
   }
 
   public function destroy($id)

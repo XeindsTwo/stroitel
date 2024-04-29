@@ -3,7 +3,7 @@ import {Navigation, Pagination} from "swiper/modules";
 
 Swiper.use([Pagination, Navigation]);
 
-const swiper = new Swiper('.best-orders__swiper', {
+new Swiper('.best-orders__swiper', {
   loop: false,
   slidesPerView: 5,
   spaceBetween: 25,

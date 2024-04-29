@@ -5,12 +5,15 @@
 <section class="profile">
   <div class="container">
     <h1 class="title">Здравствуйте, {{$user->name}}</h1>
-    <a class="profile__logout" href="{{route('logout')}}">Выйти из аккаунта</a>
-    @if($user->role === 'ADMIN')
-      <div class="profile__admin">
-        Вы имеете доступ к админ-панели
-        <a class="profile__link" href="{{ route('admin.feedback-request') }}">Перейти в админ-панель</a>
-      </div>
+    <form method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button class="profile__logout" type="submit">Выйти из аккаунта</button>
+    </form>
+  @if($user->role === 'ADMIN')
+      <a class="profile__admin" href="{{ route('admin.products.index') }}">
+        Вы имеете доступ к админ-панели <br>
+        Перейти в админ-панель
+      </a>
     @endif
     <p class="profile__orders-empty">
       У вас ещё нет заказов

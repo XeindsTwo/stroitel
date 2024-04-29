@@ -8,8 +8,8 @@ use Illuminate\Foundation\Application;
 
 class HomeController extends Controller
 {
-    public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
-    {
-        return view('index');
-    }
+  public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+  {
+    return view('index');
+  }
 }

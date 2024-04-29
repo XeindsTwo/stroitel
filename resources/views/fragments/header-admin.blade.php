@@ -6,15 +6,15 @@
       </a>
       <ul class="header__admin-list">
         <li>
-          <a class="header__admin-link {{Route::currentRouteName() === 'admin.categories.index' ? 'active' : '' }}"
-             href="{{route('admin.categories.index')}}">
-            Управление категориями
-          </a>
-        </li>
-        <li>
           <a class="header__admin-link {{Route::currentRouteName() === 'admin.products.index' ? 'active' : '' }}"
              href="{{route('admin.products.index')}}">
             Управление товарами
+          </a>
+        </li>
+        <li>
+          <a class="header__admin-link {{Route::currentRouteName() === 'admin.categories.index' ? 'active' : '' }}"
+             href="{{route('admin.categories.index')}}">
+            Управление категориями
           </a>
         </li>
         <li>

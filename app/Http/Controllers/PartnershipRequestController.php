@@ -13,7 +13,7 @@ class PartnershipRequestController extends Controller
   {
     $key = 'partnership_requests_' . $request->ip();
     $maxRequests = 3;
-    $decayInSeconds = 30; //1800 секунд = 30 минутам
+    $decayInSeconds = 1800; //1800 секунд = 30 минутам
 
     if (!RateLimiter::tooManyAttempts($key, $maxRequests)) {
       RateLimiter::hit($key, $decayInSeconds);
@@ -33,8 +33,7 @@ class PartnershipRequestController extends Controller
         return response()->json(['error' => 'Ошибка при обработке запроса'], 500);
       }
     } else {
-      $retryAfter = RateLimiter::availableIn($key);
-      return response()->json(['error' => 'Превышено максимальное количество запросов. Пожалуйста, попробуйте снова через ' . $retryAfter . ' секунд.'], 429);
+      return response()->json(['error' => 'Превышено максимальное количество запросов. Пожалуйста, попробуйте чуть позже отправить заявления'], 429);
     }
   }
 }
