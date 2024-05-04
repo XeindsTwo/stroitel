@@ -12,7 +12,6 @@ Route::prefix('admin')->middleware(['checkdb', 'admin'])->group(function () {
     ->name('admin.products.index_products');
   Route::get('/products/categories/{category_id}/subcategories/{subcategory_id}/products', [ProductController::class, 'indexSubcategoryProducts'])
     ->name('admin.products.index_subcategory_products');
-
   Route::get('/products/create', [ProductController::class, 'createPage'])->name('admin.products.create');
   Route::post('/products', [ProductController::class, 'store'])->name('admin.products.store');
   Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('admin.products.edit');

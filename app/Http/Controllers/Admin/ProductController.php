@@ -14,26 +14,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
-  public function indexCatalog()
-  {
-    try {
-      $products = Product::all();
-      return view('catalog', compact('products'));
-    } catch (Exception) {
-      return redirect()->route('error404');
-    }
-  }
-
-  public function show($id)
-  {
-    try {
-      $product = Product::with('compositions')->findOrFail($id);
-      return view('product', compact('product'));
-    } catch (Exception) {
-      return redirect()->route('error404');
-    }
-  }
-
   /**
    * Отображает страницу с подкатегориями указанной категории
    * @param int $category_id Идентификатор категории

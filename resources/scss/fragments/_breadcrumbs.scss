@@ -27,15 +27,15 @@
   &__link {
     transition: color .4s, border .4s;
     border-bottom: 1px solid transparent;
-    color: #627c9b;
+    color: $gray15;
 
     &:hover {
-      color: $blue35;
+      color: $blue50;
     }
 
     &:focus {
-      color: $blue35;
-      border-bottom-color: $blue35;
+      color: $blue50;
+      border-bottom-color: $blue50;
     }
 
     &--inactive {
