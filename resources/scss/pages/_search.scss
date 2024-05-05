@@ -1,0 +1,28 @@
+.search {
+  margin-bottom: 60px;
+
+  &__text {
+    margin-top: -7px;
+    margin-bottom: 20px;
+    color: $blue35;
+    font-weight: 500;
+  }
+
+  &__main {
+    font-size: 14px;
+  }
+
+  &__subtitle {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  &__chapters {
+    margin-top: 30px;
+    @include flex-column(40);
+  }
+
+  &__chapter {
+    @include flex-column(14);
+  }
+}

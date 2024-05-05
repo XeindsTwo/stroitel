@@ -6,11 +6,12 @@
       </a>
       <ul class="footer__columns">
         <li class="footer__column">
-          <span class="footer__name">Подробнее</span>
+          <span class="footer__name">Подробнее о компании</span>
           <div class="footer__links">
-            <a class="footer__link" href="">Оценка</a>
-            <a class="footer__link" href="">Монетизация</a>
-            <a class="footer__link" href="">Умное консультирование</a>
+            <a class="footer__link" href="{{route('payment_delivery')}}">Оплата и доставка</a>
+            <a class="footer__link" href="{{route('reviews')}}">Наши отзывы</a>
+            <a class="footer__link" href="{{route('faq')}}">Частые вопросы</a>
+            <a class="footer__link" href="{{route('letters')}}">Благодарственные письма</a>
           </div>
         </li>
         <li>
@@ -18,14 +19,17 @@
           <div class="footer__links">
             <a class="footer__link" href="{{route('contacts')}}">Контакты</a>
             <a class="footer__link" href="https://aridal.ru/pdf/buklet_2019.pdf" target="_blank">Каталог PDF</a>
-            <a class="footer__link" href="">Перспективы компании</a>
             <a class="footer__link" href="{{route('partneram')}}">Партнерам</a>
+            <a class="footer__link" href="{{route('services.strojmateriali')}}">Доставка строительных материалов</a>
+            <a class="footer__link" href="{{route('services.raspil')}}">Распил</a>
+            <a class="footer__link" href="{{route('services.coloring')}}">Колеровка декоративных штукатурок и красок</a>
           </div>
         </li>
       </ul>
     </div>
     <div class="footer__bottom">
       <div class="footer__contacts">
+        <a class="footer__contact" href="{{route('profile')}}" target="_blank">Личный кабинет</a>
         <a class="footer__contact" href="tel:+73450982212">+7 (345) 098-22-12</a>
         <a class="footer__contact" href="mailto:zakaz@diseased.com">zakaz@diseased.com</a>
         <a class="footer__contact" href="https://maps.app.goo.gl/B1APybfZX7XJJ9jD6" target="_blank">

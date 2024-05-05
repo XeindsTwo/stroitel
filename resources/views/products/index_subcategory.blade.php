@@ -50,7 +50,7 @@
               </button>
             </div>
             <a class="catalog__image" href="{{ route('show_product', ['id' => $product->id]) }}">
-              <img src="{{ asset('storage/products/' . $product->image_path) }}" alt="{{ $product->name }}">
+              <img src="{{ asset('storage/products/' . $product->image_path) }}" loading="lazy" alt="{{ $product->name }}">
             </a>
             <div class="catalog__info">
               <p class="catalog__article">Артикул: {{ $product->article }}</p>

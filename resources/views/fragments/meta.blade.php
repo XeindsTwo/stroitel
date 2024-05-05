@@ -6,9 +6,9 @@
         <button class="meta__link" type="button" id="feedback-open">Заказать звонок</button>
         <a class="meta__link" href="https://aridal.ru/pdf/buklet_2019.pdf" target="_blank">Каталог PDF</a>
       </div>
-      <form class="meta__form" action="">
+      <form class="meta__form" action="{{ route('search') }}" method="GET">
         <label for="search">
-          <input class="meta__input" id="search" name="search" required type="text" placeholder="Поиск товаров...">
+          <input class="meta__input" id="search" name="search" required type="text" placeholder="Поиск товаров по названию...">
         </label>
         <button class="btn" type="submit">Поиск</button>
       </form>
