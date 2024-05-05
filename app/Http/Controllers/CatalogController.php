@@ -77,4 +77,10 @@ class CatalogController extends Controller
       return redirect()->route('error404');
     }
   }
+
+  public function indexDiscounted()
+  {
+    $products = Product::whereNotNull('new_price')->get();
+    return view('products.discounted', compact('products'));
+  }
 }

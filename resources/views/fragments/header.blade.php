@@ -41,7 +41,7 @@
           <a class="header__link" href="{{route('services.uslugi')}}">Услуги</a>
         </li>
         <li>
-          <a class="header__link" href="">Акции</a>
+          <a class="header__link" href="{{route('discounted')}}">Акции</a>
         </li>
         <li>
           <a class="header__link" href="{{route('partneram')}}">Партнерам</a>

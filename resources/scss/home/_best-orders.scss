@@ -52,30 +52,6 @@
     font-size: 12px;
   }
 
-  &__favorite {
-    display: flex;
-    border-radius: 2px;
-
-    &:hover {
-      .svg_icon {
-        fill: $red35;
-        stroke: $red35;
-      }
-    }
-
-    &:focus {
-      outline: 1.5px solid $blue35;
-    }
-  }
-
-  .svg_icon {
-    height: 19px;
-    width: 22px;
-    stroke-width: 40;
-    fill: #fff;
-    stroke: #627c9b;
-  }
-
   &__img {
     @include flex-center;
     height: 150px;

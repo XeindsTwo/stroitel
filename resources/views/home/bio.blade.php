@@ -15,7 +15,7 @@
           партнером при выборе качественных строительных ресурсов.
         </h2>
         <div class="bio__profile">
-          <a class="bio__more" href="">Читать далее....</a>
+          <a class="bio__more" href="{{route('about')}}">Читать далее....</a>
           <h3 class="bio__name">Вадим Фёдоров</h3>
           <p class="bio__text">
             Генеральный директор Diseased Industrial Acquisitions

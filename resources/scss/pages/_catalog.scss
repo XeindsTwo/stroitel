@@ -1,6 +1,14 @@
 .catalog {
   padding-bottom: 40px;
 
+  &__sort {
+    @include flex-column(7);
+    max-width: 302px;
+    width: 100%;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
   &__list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -127,7 +135,10 @@
   &__like {
     @include flex-align-center(12);
     margin-left: auto;
-    transition: all .4s;
+    outline: 1px solid transparent;
+    padding: 2px;
+    border-radius: 3px;
+    transition: all .4s, outline .4s;
 
     &:hover {
       svg path {
@@ -137,10 +148,7 @@
     }
 
     &:focus {
-      svg path {
-        stroke: $red35;
-        fill: transparent;
-      }
+      outline-color: $blue35;
     }
 
     svg path {

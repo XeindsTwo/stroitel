@@ -22,6 +22,16 @@
   <div class="container">
     <h2 class="title title--long">{{$categoryName}}</h2>
     @if(!$products->isEmpty())
+      @if($products->count() >= 2)
+        <div class="catalog__sort">
+          <label for="sort-select">Сортировать:</label>
+          <select class="input" id="sort-select">
+            <option value="default">Без сортировки</option>
+            <option value="low_to_high">Сначала дешевые</option>
+            <option value="high_to_low">Сначала дороже</option>
+          </select>
+        </div>
+      @endif
       <ul class="catalog__products">
         @foreach($products as $product)
           <li class="catalog__product">
@@ -45,7 +55,8 @@
               </button>
             </div>
             <a class="catalog__image" href="{{ route('show_product', ['id' => $product->id]) }}">
-              <img src="{{ asset('storage/products/' . $product->image_path) }}" loading="lazy" alt="{{ $product->name }}">
+              <img src="{{ asset('storage/products/' . $product->image_path) }}" loading="lazy"
+                   alt="{{ $product->name }}">
             </a>
             <div class="catalog__info">
               <p class="catalog__article">Артикул: {{ $product->article }}</p>
@@ -99,6 +110,49 @@
 <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    const sortSelect = document.getElementById('sort-select');
+    const productsList = document.querySelector('.catalog__products');
+    let originalOrder = [];
+
+    // Сохранение изначального порядка элементов
+    Array.from(productsList.children).forEach((product, index) => {
+      originalOrder.push({product: product, index: index});
+    });
+
+    sortSelect.addEventListener('change', () => {
+      const selectedValue = sortSelect.value;
+      const products = originalOrder.map(obj => obj.product);
+
+      if (selectedValue === 'low_to_high') {
+        products.sort((a, b) => {
+          const priceA = parseFloat(a.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
+          const priceB = parseFloat(b.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
+          return priceA - priceB;
+        });
+      } else if (selectedValue === 'high_to_low') {
+        products.sort((a, b) => {
+          const priceA = parseFloat(a.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
+          const priceB = parseFloat(b.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
+          return priceB - priceA;
+        });
+      }
+
+      // Удаление всех продуктов из списка
+      while (productsList.firstChild) {
+        productsList.removeChild(productsList.firstChild);
+      }
+
+      // Добавление отсортированных продуктов обратно в список
+      products.forEach(product => {
+        productsList.appendChild(product);
+      });
+
+      // Обновляем индексы после сортировки
+      originalOrder.forEach((obj, index) => {
+        obj.index = index;
+      });
+    });
+
     const forms = document.querySelectorAll('.catalog__form');
 
     forms.forEach(form => {

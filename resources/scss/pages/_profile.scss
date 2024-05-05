@@ -3,23 +3,21 @@
 
   &__admin {
     @include flex-column(0);
-    background-color: $blue35;
-    max-width: 340px;
+    background-color: rgb(109, 51, 54);
+    max-width: 300px;
+    text-align: center;
     color: $white;
-    padding: 20px;
+    padding: 17px 20px;
     border-radius: 7px;
-    border: 1px solid transparent;
-    transition: background-color .4s, border .4s, color .4s;
+    transition: background-color .4s, color .4s;
 
     &:hover {
-      background-color: transparent;
-      border-color: $blue35;
-      color: $blue90;
+      background-color: rgb(234, 31, 34);
+      color: $white;
     }
 
     &:focus {
       background-color: $blue90;
-      border-color: transparent;
       color: $white;
     }
   }
@@ -43,6 +41,65 @@
     &:focus {
       color: $red600;
       border-bottom-color: $red600;
+    }
+  }
+
+  &__list {
+    margin-top: 40px;
+    min-height: 120px;
+    border: 1px solid $gray300;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &__item {
+    @include flex-column(20);
+    font-size: 18px;
+    padding: 20px;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+
+    &:not(:last-child) {
+      border-right: 1px solid $gray300;
+    }
+
+    span {
+      &:first-child {
+        font-size: 16px;
+        color: $gray15;
+      }
+    }
+  }
+
+  &__edit {
+    @include flex-align-center(9);
+    padding: 3px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    color: $green500;
+
+    &:hover {
+      color: $blue50;
+
+      svg path {
+        fill: $blue50;
+      }
+    }
+
+    &:focus {
+      border-color: $blue50;
+    }
+
+    svg {
+      transform: translateY(-1px);
+
+      path {
+        fill: $green500;
+      }
     }
   }
 

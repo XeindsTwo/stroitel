@@ -161,7 +161,7 @@
   }
 
   &__price {
-    @include flex-align-center(2);
+    @include flex-align-center(4);
     align-items: center;
     flex-wrap: wrap;
     font-weight: 500;

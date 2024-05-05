@@ -1,4 +1,4 @@
-@include('fragments.head', ['title' => $subcategory->name])
+@include('fragments.head', ['title' => 'Акции на товары'])
 <link href="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.css" rel="stylesheet">
 <body class="body">
 @include('fragments.meta')
@@ -10,34 +10,15 @@
         <a class="breadcrumbs__link" href="{{route('index')}}">Главная</a>
       </div>
       <div class="breadcrumbs__item">
-        <a class="breadcrumbs__link" href="{{route('catalog')}}">Каталог компании</a>
-      </div>
-      <div class="breadcrumbs__item">
-        <a class="breadcrumbs__link"
-           href="{{ route('category.subcategories', ['categoryId' => $subcategory->category->id]) }}">
-          {{ $subcategory->category->name }}
-        </a>
-      </div>
-      <div class="breadcrumbs__item">
-        <span class="breadcrumbs__link breadcrumbs__link--inactive">{{$subcategory->name}}</span>
+        <span class="breadcrumbs__link breadcrumbs__link--inactive">Акции товаров магазина</span>
       </div>
     </div>
   </div>
 </div>
 <section class="catalog">
   <div class="container">
-    <h2 class="title title--long">{{$subcategory->name}}</h2>
+    <h2 class="title title--long">Акции товаров магазина</h2>
     @if(!$products->isEmpty())
-      @if($products->count() >= 2)
-        <div class="catalog__sort">
-          <label for="sort-select">Сортировать:</label>
-          <select class="input" id="sort-select">
-            <option value="default">Без сортировки</option>
-            <option value="low_to_high">Сначала дешевые</option>
-            <option value="high_to_low">Сначала дороже</option>
-          </select>
-        </div>
-      @endif
       <ul class="catalog__products">
         @foreach($products as $product)
           <li class="catalog__product">
@@ -116,49 +97,6 @@
 <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const sortSelect = document.getElementById('sort-select');
-    const productsList = document.querySelector('.catalog__products');
-    let originalOrder = [];
-
-    // Сохранение изначального порядка элементов
-    Array.from(productsList.children).forEach((product, index) => {
-      originalOrder.push({product: product, index: index});
-    });
-
-    sortSelect.addEventListener('change', () => {
-      const selectedValue = sortSelect.value;
-      const products = originalOrder.map(obj => obj.product);
-
-      if (selectedValue === 'low_to_high') {
-        products.sort((a, b) => {
-          const priceA = parseFloat(a.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
-          const priceB = parseFloat(b.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
-          return priceA - priceB;
-        });
-      } else if (selectedValue === 'high_to_low') {
-        products.sort((a, b) => {
-          const priceA = parseFloat(a.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
-          const priceB = parseFloat(b.querySelector('.catalog__price-new').textContent.replace(/\s+/g, ''));
-          return priceB - priceA;
-        });
-      }
-
-      // Удаление всех продуктов из списка
-      while (productsList.firstChild) {
-        productsList.removeChild(productsList.firstChild);
-      }
-
-      // Добавление отсортированных продуктов обратно в список
-      products.forEach(product => {
-        productsList.appendChild(product);
-      });
-
-      // Обновляем индексы после сортировки
-      originalOrder.forEach((obj, index) => {
-        obj.index = index;
-      });
-    });
-
     const forms = document.querySelectorAll('.catalog__form');
 
     forms.forEach(form => {
