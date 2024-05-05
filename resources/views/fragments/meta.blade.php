@@ -13,7 +13,7 @@
         <button class="btn" type="submit">Поиск</button>
       </form>
       <div class="meta__actions">
-        <a class="meta__btn btn" href="">
+        <a class="meta__btn btn" href="{{route('card.favorites')}}">
           <svg class="meta__icon" width="18" height="18" viewBox="0 -28 512.00002 512"
                xmlns="http://www.w3.org/2000/svg">
             <path
@@ -34,3 +34,4 @@
   </div>
 </div>
 @include('fragments.feedback-modal')
+@vite(['resources/js/components/favtotal.js'])

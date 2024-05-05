@@ -31,7 +31,7 @@
                     @if(isset($product->new_price))
                       <span class="catalog__rebate">Акция</span>
                     @endif
-                    <button class="catalog__like" type="button" id="favorite_btn">
+                    <button class="catalog__like like" type="button" id="favorite_btn" data-product-id="{{ $product->id }}">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
                         <g clip-path="url(#clip0_11_5)">
                           <path

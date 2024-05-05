@@ -83,7 +83,7 @@
   <div class="container">
     <div class="product__inner">
       <div class="product__image">
-        <button class="product__like" type="button" id="favorite_btn">
+        <button class="product__like like" data-product-id="{{ $product->id }}" type="button" id="favorite_btn">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
             <g clip-path="url(#clip0_11_5)">
               <path

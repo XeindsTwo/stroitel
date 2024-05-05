@@ -89,6 +89,21 @@ html {
   }
 }
 
+.like {
+  &_active {
+    svg path {
+      stroke: transparent !important;
+      fill: $red35 !important;
+    }
+
+    &:hover {
+      svg path {
+        fill: $red500 !important;
+      }
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
