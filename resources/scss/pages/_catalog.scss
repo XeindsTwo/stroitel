@@ -229,6 +229,12 @@
     }
   }
 
+  &__order {
+    margin-top: auto;
+    font-weight: 500;
+    font-size: 14px;
+  }
+
   &__form {
     @include flex-align-center(15);
     border-top: 1px solid $blue10;

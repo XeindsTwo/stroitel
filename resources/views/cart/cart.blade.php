@@ -92,11 +92,19 @@
           <div class="cart__item action"></div>
         </div>
       </div>
+      <a class="cart__order" href="{{route('order.index')}}">Перейти к оформлению заказа</a>
     @else
-      <p class="cart__info accent">
-        Ваша корзина пуста. Вы можете начать покупки, добавив товары
-      </p>
-      <a class="cart__main btn" href="{{route('index')}}">На главную</a>
+      @if(Auth::check())
+        <p class="cart__info accent">
+          Ваша корзина для оформления заказа ещё пуста. Вы можете начать покупки, добавив товары
+        </p>
+        <a class="cart__main btn" href="{{route('index')}}">На главную</a>
+      @else
+        <p class="cart__info accent">
+          Чтобы добавлять товары в корзину, нужно быть зарегистрированным в системе
+        </p>
+        <a class="cart__main btn" href="{{route('index')}}">На главную</a>
+      @endif
     @endif
   </div>
 </section>
@@ -167,7 +175,7 @@
     const unitCostElement = form.closest('.cart__row').querySelector('.unit_cost');
     const priceElement = form.closest('.cart__row').querySelector('.price');
     const totalPriceElement = document.getElementById('cartTotal');
-    const cartItemId = quantityInput.getAttribute('data-cart-id'); // Добавим получение cart_id
+    const cartItemId = quantityInput.getAttribute('data-cart-id');
     let quantity = parseInt(quantityInput.value);
     let unitPrice = parseFloat(unitCostElement.innerText);
 

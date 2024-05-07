@@ -6,6 +6,12 @@
       </a>
       <ul class="header__admin-list">
         <li>
+          <a class="header__admin-link {{Route::currentRouteName() === 'admin.orders.index' ? 'active' : '' }}"
+             href="{{route('admin.orders.index')}}">
+            Управление заказами
+          </a>
+        </li>
+        <li>
           <a class="header__admin-link {{Route::currentRouteName() === 'admin.products.index' ? 'active' : '' }}"
              href="{{route('admin.products.index')}}">
             Управление товарами

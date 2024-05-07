@@ -12,7 +12,9 @@ class ProfileController extends Controller
   public function show()
   {
     $user = Auth::user();
-    return view('profile', ['user' => $user]);
+    $orders = $user->orders()->with('products')->get();
+
+    return view('profile', ['user' => $user, 'orders' => $orders]);
   }
 
   public function update(Request $request)

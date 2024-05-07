@@ -19,10 +19,23 @@
   padding: 13px 12px 12px;
   background-color: $white;
   border: 1px solid transparent;
-  transition: background-color .4s, border .4s;
+  transition: background-color .4s, border .4s, opacity .4s;
   width: 100%;
   font-size: 14px;
   color: $blue90;
+
+  &::placeholder {
+    transition: color .4s;
+  }
+
+  &.inactive {
+    pointer-events: none;
+    opacity: .6;
+
+    &::placeholder {
+      color: $gray15;
+    }
+  }
 
   &--textarea {
     resize: none;

@@ -150,4 +150,24 @@
       fill: $white;
     }
   }
+
+  &__order {
+    display: flex;
+    max-width: max-content;
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 1px solid;
+    margin-top: 20px;
+    transition: color .4s, border .4s;
+
+    &:hover {
+      border-bottom-color: transparent;
+    }
+
+    &:focus {
+      color: $blue35;
+      border-bottom-color: $blue35;
+    }
+  }
 }

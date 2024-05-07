@@ -41,9 +41,58 @@
       </svg>
       Редактировать данные
     </button>
-    <p class="profile__orders-empty">
-      История заказов
-    </p>
+    <div class="profile__orders">
+      <h2 class="profile__orders-title">
+        История заказов
+      </h2>
+      @if($orders->isEmpty())
+        <p class="profile__orders-empty">У вас ещё нет заказов</p>
+      @else
+        <ul class="profile__orders-list">
+          @foreach($orders as $order)
+            <li class="profile__order">
+              <p class="profile__order-id">Заказ №{{ $order->id }}</p>
+              <ul class="profile__order-info">
+                <li>Имя: <br> {{ $order->name }}</li>
+                <li>Номер телефона: <br> {{ $order->phone_number }}</li>
+                <li>Почта: <br> {{ $order->email }}</li>
+                <li>Дата: <br> {{ $order->created_at->format('d M Y') }}</li>
+                <li>Общая стоимость заказа: <br> {{ number_format($order->total_price, 0, ',', ' ') }} &#8381;</li>
+                @if($order->delivery_address)
+                  <li>Адрес доставки: <br> {{ $order->delivery_address }}</li>
+                @endif
+                @if($order->delivery_option === 'delivery')
+                  <li>Тип доставки: Доставка</li>
+                @elseif($order->delivery_option === 'pickup')
+                  <li>Тип доставки: Самовывоз</li>
+                @endif
+                @if($order->payment_option === 'cash')
+                  <li>Способ оплаты: Наличными</li>
+                @elseif($order->payment_option === 'non-cash')
+                  <li>Способ оплаты: Безналичный расчет</li>
+                @endif
+              </ul>
+              <ul class="profile__order-products">
+                @foreach($order->products as $product)
+                  <li class="catalog__product">
+                    <a class="catalog__image" href="{{ route('show_product', ['id' => $product->id]) }}" target="_blank">
+                      <img src="{{ asset('storage/products/' . $product->image_path) }}" loading="lazy" alt="{{ $product->name }}">
+                    </a>
+                    <div class="catalog__info">
+                      <p class="catalog__article">Артикул: {{ $product->article }}</p>
+                      <p class="catalog__name">{{ $product->name }}</p>
+                      <div class="catalog__order">
+                        <span>Количество товара - </span> {{ $product->pivot->quantity }} шт.
+                      </div>
+                    </div>
+                  </li>
+                @endforeach
+              </ul>
+            </li>
+          @endforeach
+        </ul>
+      @endif
+    </div>
   </div>
 </section>
 <div class="modal" id="modal_profile">
