@@ -41,6 +41,28 @@
               </div>
               <span class="best-orders__old">{{$product->price}} ₽</span>
             </div>
+            <form class="catalog__form form {{$product->availability ? '' : 'not-available'}}" action="">
+              <input type="hidden" name="product_id" value="{{$product->id}}">
+              <div class="catalog__input">
+                <input class="catalog__value quantity" type="number" name="quantity" id="quantity">
+                <div class="catalog__actions">
+                  <button class="catalog__action plus" type="button">
+                    <svg viewBox="0 0 9 8" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="4" width="2" height="8" rx="1"></rect>
+                      <rect x="1" y="5.00488" width="2" height="8" rx="1"
+                            transform="rotate(-90.0355 1 5.00488)"></rect>
+                    </svg>
+                  </button>
+                  <button class="catalog__action minus" type="button">
+                    <svg viewBox="0 0 9 3" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="1" y="2.00488" width="2" height="8" rx="1"
+                            transform="rotate(-90.0355 1 2.00488)"></rect>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button class="catalog__card btn" type="submit">В корзину</button>
+            </form>
           </div>
         </div>
       @endforeach

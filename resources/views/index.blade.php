@@ -13,4 +13,5 @@
 @include('fragments/footer')
 @vite(['resources/js/slider-orders.js'])
 <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+@vite(['resources/js/components/add-to-cart.js'])
 </body>

@@ -57,9 +57,10 @@
                   <span class="catalog__price-new one">{{ number_format($product->price, 0, '.', ' ') }} &#8381;</span>
                 @endif
               </div>
-              <form class="catalog__form {{$product->availability ? '' : 'not-available'}}" action="">
+              <form class="catalog__form form {{$product->availability ? '' : 'not-available'}}" action="">
+                <input type="hidden" name="product_id" value="{{$product->id}}">
                 <div class="catalog__input">
-                  <input class="catalog__value" type="number">
+                  <input class="catalog__value quantity" type="number" name="quantity" id="quantity">
                   <div class="catalog__actions">
                     <button class="catalog__action plus" type="button">
                       <svg viewBox="0 0 9 8" xmlns="http://www.w3.org/2000/svg">
@@ -94,41 +95,4 @@
 @include('fragments.footer')
 </body>
 <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const forms = document.querySelectorAll('.catalog__form');
-
-    forms.forEach(form => {
-      const valueInput = form.querySelector('.catalog__value');
-      const plusBtn = form.querySelector('.catalog__action.plus');
-      const minusBtn = form.querySelector('.catalog__action.minus');
-
-      let counterValue = 1;
-      valueInput.value = counterValue;
-
-      plusBtn.addEventListener('click', () => {
-        counterValue++;
-        valueInput.value = counterValue;
-      });
-
-      minusBtn.addEventListener('click', () => {
-        if (counterValue > 1) {
-          counterValue--;
-          valueInput.value = counterValue;
-        }
-      });
-
-      form.addEventListener('submit', (event) => {
-        if (valueInput.value.trim() === '' || valueInput.value.trim() < 1) {
-          event.preventDefault();
-          Toastify({
-            text: 'Минимальное количество товара в корзину - 1',
-            duration: 3000,
-            gravity: 'top',
-            position: 'right',
-          }).showToast();
-        }
-      });
-    });
-  });
-</script>
+@vite(['resources/js/components/add-to-cart.js'])

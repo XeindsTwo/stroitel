@@ -98,7 +98,7 @@
   }
 
   &__price {
-    margin-top: auto;
+    margin: auto 0 12px;
     align-items: center;
     @include flex-between(20);
   }
