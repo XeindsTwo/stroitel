@@ -25,7 +25,7 @@
             <img
                 class="catalog__img"
                 src="{{ asset('storage/category_images/' . $category->image) }}"
-                alt="{{ $category->name }}"
+                alt="{{ $category->name }}" width="280" height="162"
             >
           </a>
         </li>

@@ -129,21 +129,21 @@ class CartController extends Controller
       $productId = $request->input('product_id');
       $newQuantity = $request->input('quantity');
 
+      // текущее количество товара в корзине для данного пользователя и продукта
       $cartItem = Cart::where('user_id', $userId)
         ->where('product_id', $productId)
         ->first();
 
-      $currentQuantity = Cart::where('user_id', $userId)
-        ->where('product_id', $productId)
-        ->sum('quantity');
-
-      $newTotalQuantity = $currentQuantity + $newQuantity;
-      if ($newTotalQuantity > 1000) {
-        return response()->json(['error' => 'Превышен общий лимит товаров в корзине'], 402);
+      if (!$cartItem) {
+        return response()->json(['error' => 'Товар не найден в корзине'], 404);
       }
 
-      $cartItem->quantity = $newQuantity;
-      $cartItem->save();
+      // не превышает ли новое количество лимит в 1000 единиц для данного товара
+      if ($newQuantity > 1000) {
+        return response()->json(['error' => 'Превышен лимит в 1000 единиц для данного товара'], 402);
+      }
+
+      $cartItem->update(['quantity' => $newQuantity]);
 
       return response()->json(['message' => 'Количество товара в корзине успешно обновлено']);
     } catch (ValidationException $e) {

@@ -5,7 +5,7 @@
         <img src="{{asset('static/images/icons/logo-long.svg')}}" alt="логотип компании">
       </a>
       <div class="header__delivery">
-        <button class="header__select" type="button">Выберите ваш город (Белореченск)</button>
+        <span class="header__select">Ваш город - Белореченск</span>
         <span class="header__address">г. Белореченск, ул. Полевая, д. 16</span>
       </div>
       <a class="header__call" href="mailto:zakaz@diseased.com">
@@ -45,9 +45,6 @@
         </li>
         <li>
           <a class="header__link" href="{{route('partneram')}}">Партнерам</a>
-        </li>
-        <li>
-          <a class="header__link" href="">Статьи и новости</a>
         </li>
         <li>
           <a class="header__link" href="{{route('contacts')}}">Контакты</a>
