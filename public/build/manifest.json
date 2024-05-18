@@ -1,0 +1,115 @@
+{
+  "_modal-functions-BMefCUWO.js": {
+    "file": "assets/modal-functions-BMefCUWO.js"
+  },
+  "public/static/images/original.jpg": {
+    "file": "assets/original-BHRPNDtM.jpg",
+    "src": "public/static/images/original.jpg"
+  },
+  "resources/css/style.min.css": {
+    "file": "assets/style-BY8q6lep.css",
+    "src": "resources/css/style.min.css",
+    "isEntry": true
+  },
+  "resources/js/bootstrap.js": {
+    "file": "assets/bootstrap-CifqVuM1.js",
+    "src": "resources/js/bootstrap.js",
+    "isEntry": true
+  },
+  "resources/js/components/accordion.js": {
+    "file": "assets/accordion-DeZwfUTA.js",
+    "src": "resources/js/components/accordion.js",
+    "isEntry": true
+  },
+  "resources/js/components/add-to-cart.js": {
+    "file": "assets/add-to-cart-BjZJ8r-E.js",
+    "src": "resources/js/components/add-to-cart.js",
+    "isEntry": true
+  },
+  "resources/js/components/custom-file.js": {
+    "file": "assets/custom-file-C3-fNGLX.js",
+    "src": "resources/js/components/custom-file.js",
+    "isEntry": true
+  },
+  "resources/js/components/favtotal.js": {
+    "file": "assets/favtotal-BIn1bp8A.js",
+    "src": "resources/js/components/favtotal.js",
+    "isEntry": true
+  },
+  "resources/js/components/feedback-modal.js": {
+    "file": "assets/feedback-modal-DFGNFDQX.js",
+    "src": "resources/js/components/feedback-modal.js",
+    "isEntry": true,
+    "imports": [
+      "_modal-functions-BMefCUWO.js"
+    ]
+  },
+  "resources/js/components/modal-functions.js": {
+    "file": "assets/modal-functions-l0sNRNKZ.js",
+    "src": "resources/js/components/modal-functions.js",
+    "isEntry": true
+  },
+  "resources/js/components/phone-mask.js": {
+    "file": "assets/phone-mask-bVRipeaP.js",
+    "src": "resources/js/components/phone-mask.js",
+    "isEntry": true
+  },
+  "resources/js/product/properties.js": {
+    "file": "assets/properties-2vG0JVup.js",
+    "src": "resources/js/product/properties.js",
+    "isEntry": true
+  },
+  "resources/js/product/update-properties.js": {
+    "file": "assets/update-properties-BsTBF0HB.js",
+    "src": "resources/js/product/update-properties.js",
+    "isEntry": true
+  },
+  "resources/js/profile.js": {
+    "file": "assets/profile-BwUjebj9.js",
+    "src": "resources/js/profile.js",
+    "isEntry": true,
+    "imports": [
+      "_modal-functions-BMefCUWO.js"
+    ]
+  },
+  "resources/js/register.js": {
+    "file": "assets/register-BwyGSIKd.js",
+    "src": "resources/js/register.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/admin/approve-review.js": {
+    "file": "assets/approve-review-d5foKXwO.js",
+    "src": "resources/js/reviews/admin/approve-review.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/admin/delete-review.js": {
+    "file": "assets/delete-review-Dv7uVCyX.js",
+    "src": "resources/js/reviews/admin/delete-review.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/admin/reject-review.js": {
+    "file": "assets/reject-review-BBbzimCh.js",
+    "src": "resources/js/reviews/admin/reject-review.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/form-submit.js": {
+    "file": "assets/form-submit-WkFjXXUY.js",
+    "src": "resources/js/reviews/form-submit.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/generate-stars.js": {
+    "file": "assets/generate-stars-DzpWlcGd.js",
+    "src": "resources/js/reviews/generate-stars.js",
+    "isEntry": true
+  },
+  "resources/js/reviews/star-rating.js": {
+    "file": "assets/star-rating-CyqLQNkp.js",
+    "src": "resources/js/reviews/star-rating.js",
+    "isEntry": true
+  },
+  "resources/js/slider-orders.js": {
+    "file": "assets/slider-orders-byWv82T7.js",
+    "src": "resources/js/slider-orders.js",
+    "isEntry": true
+  }
+}

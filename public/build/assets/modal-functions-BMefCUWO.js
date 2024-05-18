@@ -1,0 +1,1 @@
+const s=e=>{document.body.classList.remove("body--active"),e.classList.remove("modal--active")},a=e=>{document.body.classList.add("body--active"),e.classList.add("modal--active")},d=e=>{document.addEventListener("keyup",o=>{o.key==="Escape"&&s(e)})};export{s as c,d as h,a as o};

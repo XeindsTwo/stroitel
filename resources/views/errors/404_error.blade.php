@@ -17,5 +17,4 @@
     </div>
   </div>
 </section>
-@vite(['resources/js/app.js'])
 </body>
