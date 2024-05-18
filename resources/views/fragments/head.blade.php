@@ -15,6 +15,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet">
   @stack('head')
-  @vite(['resources/scss/style.scss'])
+  @vite(['resources/css/style.min.css'])
   @livewireStyles
 </head>
