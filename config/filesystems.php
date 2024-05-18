@@ -8,7 +8,6 @@ return [
       'driver' => 'local',
       'root' => storage_path('app'),
     ],
-
     'public' => [
       'driver' => 'local',
       'root' => storage_path('app/public'),
@@ -16,7 +15,6 @@ return [
       'visibility' => 'public',
       'throw' => false,
     ],
-
     's3' => [
       'driver' => 's3',
       'key' => env('AWS_ACCESS_KEY_ID'),
@@ -28,11 +26,10 @@ return [
       'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
       'throw' => false,
     ],
-
   ],
 
   'links' => [
     public_path('storage') => storage_path('app/public'),
-    base_path('public_html') => base_path('public')
+    base_path('public_html') => base_path('public'),
   ],
 ];
